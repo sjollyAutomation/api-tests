@@ -919,7 +919,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"firstName\": \"John L\",\n    \"lastName\": \"Doe\",\n    \"birthdate\": \"1981-05-10\",\n    \"email\": \"jdoe@test.com\",\n    \"phone\": \"403-586-2463\",\n    \"street1\": \"1 Main St.\",\n    \"street2\": \"Apartment 8B\",\n    \"city\": \"Endmonton\",\n    \"stateProvince\": \"AB\",\n    \"postalCode\": \"T4E 4R5\",\n    \"country\": \"Canada\"\n}",
+									"raw": "{\n    \"firstName\": \"{{updatedFirstName}}\",\n    \"lastName\": \"{{updatedLastName}}\",\n    \"birthdate\": \"{{updatedBirthDate}}\",\n    \"email\": \"{{updatedEmail}}\",\n    \"phone\": \"{{updatedPhone}}\",\n    \"street1\": \"{{updatedStreet}}\",\n    \"street2\": \"{{updatedHouse}}\",\n    \"city\": \"{{updatedCity}}\",\n    \"stateProvince\": \"{{updatedProvince}}\",\n    \"postalCode\": \"{{updatedPostalCode}}\",\n    \"country\": \"{{updatedCountry}}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
