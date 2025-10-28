@@ -876,6 +876,30 @@
 						},
 						{
 							"name": "Update Complete Contact",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "26c85d96-f9d5-417b-b2ce-b808b0d9e58a",
+										"exec": [
+											"pm.variables.set(\"updatedFirstName\", \"John A\");",
+											"pm.variables.set(\"updatedLastName\", \"Doe\");",
+											"pm.variables.set(\"updatedBirthDate\", \"1981-05-10\");",
+											"pm.variables.set(\"updatedEmail\", \"john.doe@example.com\");",
+											"pm.variables.set(\"updatedPhone\", \"403-456-7890\");",
+											"pm.variables.set(\"updatedStreet\", \"1234 Elm St\");",
+											"pm.variables.set(\"updatedHouse\", \"Apt 2B\");",
+											"pm.variables.set(\"updatedCity\", \"Dallas\");",
+											"pm.variables.set(\"updatedProvince\", \"TX\");",
+											"pm.variables.set(\"updatedPostalCode\", \"75201\");",
+											"pm.variables.set(\"updatedCountry\", \"USA\");"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
 							"id": "48037874-1328733b-65ee-40b6-8fdd-80244892560f",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
