@@ -747,6 +747,95 @@
 						},
 						{
 							"name": "Update Contact",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "72f482f9-97f1-4d47-a2a2-b62ecf455e92",
+										"exec": [
+											"const updatedFirstName = \"John H\";"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "fd2cb177-ce7d-4729-a3c8-4ee5af75d5b6",
+										"exec": [
+											"var jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Response Content-Type is JSON\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+											"});",
+											"",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"JSON response object has correct fields\", function () {",
+											"    pm.expect(jsonData).to.be.an('object');",
+											"    pm.expect(jsonData).to.have.all.keys('_id', 'firstName', 'lastName', 'birthdate', 'email', 'phone', 'street1', 'street2', 'city', 'stateProvince', 'postalCode', 'country', 'owner', '__v');",
+											"});",
+											"",
+											"pm.test(\"JSON response basic identity fields have valid types\", function () {",
+											"    pm.expect(jsonData._id).to.be.a('string');",
+											"    pm.expect(jsonData.firstName).to.be.a('string');",
+											"    pm.expect(jsonData.lastName).to.be.a('string');",
+											"    pm.expect(jsonData.birthdate).to.be.a('string');",
+											"});",
+											"",
+											"pm.test(\"JSON response contact info fields are valid\", function () {",
+											"    pm.expect(jsonData.email).to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/);",
+											"    pm.expect(jsonData.phone).to.be.a('string');",
+											"});",
+											"",
+											"pm.test(\"JSON response address fields have valid types\", function () {",
+											"    pm.expect(jsonData.street1).to.be.a('string');",
+											"    pm.expect(jsonData.street2).to.be.a('string');",
+											"    pm.expect(jsonData.city).to.be.a('string');",
+											"    pm.expect(jsonData.stateProvince).to.be.a('string');",
+											"    pm.expect(jsonData.postalCode).to.be.a('string');",
+											"    pm.expect(jsonData.country).to.be.a('string');",
+											"});",
+											"",
+											"pm.test(\"JSON response metadata fields are valid\", function () {",
+											"    pm.expect(jsonData.owner).to.be.a('string');",
+											"    pm.expect(jsonData.__v).to.be.a('number');",
+											"});",
+											"",
+											"pm.test(\"JSON response basic identity fields match environment values\", function () {",
+											"    pm.expect(jsonData.firstName).to.eql(pm.environment.get(\"firstName\"));",
+											"    pm.expect(jsonData.lastName).to.eql(pm.environment.get(\"lastName\"));",
+											"    pm.expect(jsonData.birthdate).to.eql(pm.environment.get(\"birthDate\"));",
+											"});",
+											"",
+											"pm.test(\"JSON response contact fields match environment values\", function () {",
+											"    pm.expect(jsonData.email).to.eql(pm.environment.get(\"emailAddress\"));",
+											"    pm.expect(jsonData.phone).to.eql(pm.environment.get(\"phone\"));",
+											"});",
+											"",
+											"pm.test(\"JSON response address fields match environment values\", function () {",
+											"    pm.expect(jsonData.street1).to.eql(pm.environment.get(\"street\"));",
+											"    pm.expect(jsonData.street2).to.eql(pm.environment.get(\"house\"));",
+											"    pm.expect(jsonData.stateProvince).to.eql(pm.environment.get(\"province\"));",
+											"    pm.expect(jsonData.city).to.eql(pm.environment.get(\"city\"));",
+											"    pm.expect(jsonData.postalCode).to.eql(pm.environment.get(\"postalCode\"));",
+											"    pm.expect(jsonData.country).to.eql(pm.environment.get(\"country\"));",
+											"});",
+											"",
+											"pm.test(\"JSON response ownership field matches environment value\", function () {",
+											"    pm.expect(jsonData.owner).to.eql(pm.environment.get(\"userId\"));",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
 							"id": "48037874-b8406eba-36e5-457f-b002-cd39cf8c0e38",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -766,7 +855,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"firstName\": \"John H\"\n}",
+									"raw": "{\n    \"firstName\": \"{{updatedFirstName}}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
