@@ -31,8 +31,7 @@ These tests validate key functionalities like:
 ├── .gitignore
 └── README.md
 
-yaml
-Copy code
+
 
 ---
 
@@ -47,23 +46,19 @@ If you don’t have Node.js installed, download it from:
 npm install -g newman
 3. Install Newman HTMLExtra Reporter
 bash
-Copy code
 npm install -g newman-reporter-htmlextra
 🚀 Running the Tests
 Run the collection with the environment
 bash
-Copy code
 newman run collections/<collection.json> -e environments/<environment.json>
 Run with HTML Report
 bash
-Copy code
 newman run collections/<collection.json> \
   -e environments/<environment.json> \
   -r htmlextra \
   --reporter-htmlextra-export ./reports/ContactListTestReport.html
 Once the run completes, open the generated report file in your browser:
 
-Copy code
 reports/ContactListTestReport.html
 🔒 Notes on Environment Variables
 Environment variables like contactListUrl, email, password, and token are stored in Requests.postman_environment.json.
