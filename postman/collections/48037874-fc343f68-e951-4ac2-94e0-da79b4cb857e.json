@@ -806,7 +806,7 @@
 											"    pm.expect(jsonData.__v).to.be.a('number');",
 											"});",
 											"",
-											"pm.test(\"JSON response basic identity fields match environment values\", function () {",
+											"pm.test(\"JSON response basic identity fields match the correct values\", function () {",
 											"    pm.expect(jsonData.firstName).to.eql(pm.variables.get(\"updatedFirstName\"));",
 											"    pm.expect(jsonData.lastName).to.eql(pm.environment.get(\"lastName\"));",
 											"    pm.expect(jsonData.birthdate).to.eql(pm.environment.get(\"birthDate\"));",
