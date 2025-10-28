@@ -607,7 +607,7 @@
 											"    jsonData.forEach((item, index) => {",
 											"        pm.expect(item.owner).to.be.a('string');",
 											"        pm.expect(item.__v).to.be.a('number');",
-											"        });",
+											"    });",
 											"});"
 										],
 										"type": "text/javascript",
