@@ -1298,14 +1298,16 @@
 			"name": "Cleanup",
 			"item": [
 				{
-					"name": "Logout",
+					"name": "Delete User  Profile",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "77df9f2d-afca-44ab-a27a-c857c9f280ba",
+								"id": "69562cdb-4856-45d9-92df-21bdd3a3ecba",
 								"exec": [
-									"pm.environment.unset(\"token\");"
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {},
@@ -1313,7 +1315,7 @@
 							}
 						}
 					],
-					"id": "48037874-c38aadbd-74a4-4e0d-82d1-3d1adde58964",
+					"id": "48037874-db6851b6-827c-4cd6-b728-b8de66a81de2",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1323,24 +1325,29 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
 						},
-						"method": "POST",
+						"method": "DELETE",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": ""
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
-							"raw": "{{contactListUrl}}users/logout",
+							"raw": "{{contactListUrl}}users/me",
 							"host": [
 								"{{contactListUrl}}users"
 							],
 							"path": [
-								"logout"
+								"me"
 							]
 						}
 					},
