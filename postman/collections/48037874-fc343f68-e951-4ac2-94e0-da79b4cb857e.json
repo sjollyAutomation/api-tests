@@ -1021,7 +1021,13 @@
 									"script": {
 										"id": "e39c4af6-f73e-47b7-a3e2-24fb94b619a3",
 										"exec": [
-											""
+											"pm.test(\"Response Content-Type is HTML\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.include('text/html');",
+											"});",
+											"",
+											"pm.test(\"Response Body is 'Contact deleted'\", function () {",
+											"    pm.expect(pm.response.text()).to.equal('Contact deleted');",
+											"})"
 										],
 										"type": "text/javascript",
 										"packages": {},
