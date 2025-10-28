@@ -1,0 +1,1489 @@
+{
+	"info": {
+		"_postman_id": "48037874-fc343f68-e951-4ac2-94e0-da79b4cb857e",
+		"name": "Contact List",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Basic Endpoint Tests",
+			"item": [
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "Get User  Profile",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8aee720b-b97b-40d9-a040-e3ded6f143c9",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"pm.environment.set(\"token\", jsonData.token);",
+											"",
+											"pm.test(\"Response Content-Type is JSON\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+											"});",
+											"",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"JSON response has correct fields\", function () {",
+											"    pm.expect(jsonData).to.be.an('object');",
+											"    pm.expect(jsonData).to.have.all.keys('_id', 'firstName', 'lastName', 'email', '__v');",
+											"});",
+											"",
+											"pm.test(\"User basic info fields have valid types\", function () {",
+											"    pm.expect(jsonData._id).to.be.a('string');",
+											"    pm.expect(jsonData.__v).to.be.a('number');",
+											"});",
+											"",
+											"pm.test(\"Name fields have valid types\", function () {",
+											"    pm.expect(jsonData.firstName).to.be.a('string');",
+											"    pm.expect(jsonData.lastName).to.be.a('string');",
+											"});",
+											"",
+											"pm.test(\"email field has valid format\", function () {",
+											"    pm.expect(jsonData.email).to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/);",
+											"});",
+											"",
+											"pm.test(\"id field has correct values\", function () {",
+											"    pm.expect(jsonData._id).to.eql(pm.environment.get(\"userId\"));",
+											"});",
+											"",
+											"pm.test(\"Name fields have correct values\", function () {",
+											"    pm.expect(jsonData.firstName).to.eql(pm.environment.get(\"addFirstName\"));",
+											"    pm.expect(jsonData.lastName).to.eql(pm.environment.get(\"addLastName\"));",
+											"});",
+											"",
+											"pm.test(\"email field has correct values\", function () {",
+											"    pm.expect(jsonData.email).to.eql(pm.environment.get(\"addEmailAddress\"));",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "7a75845f-7869-40dc-a922-5bc40902e9de",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48037874-bee84298-5214-45ee-91f9-24143639e200",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{contactListUrl}}users/me",
+									"host": [
+										"{{contactListUrl}}users"
+									],
+									"path": [
+										"me"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "48037874-f7b77590-e95e-4364-a81f-a4b57423a62d",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "13d02f56-666a-4713-a5a3-b99575c143c9",
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"contactListUrl\") + \"users/login\",",
+									"        method: \"POST\",",
+									"        header: 'Content-Type: application/json',",
+									"        body: {",
+									"            mode: 'raw',",
+									"            raw: JSON.stringify({",
+									"                email: pm.environment.get(\"addEmailAddress\"),",
+									"                password: pm.environment.get(\"addPassword\")",
+									"            })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err) {",
+									"            const jsonData = res.json();",
+									"            pm.environment.set(\"token\", jsonData.token);",
+									"            pm.environment.set(\"userId\", jsonData.user._id);",
+									"        } else {",
+									"            console.error(\"Login request failed\", err);",
+									"        }",
+									"    });",
+									"}"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "1daae50e-26c8-41ad-b6bf-35bcf6954870",
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Contacts",
+					"item": [
+						{
+							"name": "Add Contact",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "91f8faed-8dbf-43e3-a45d-fdd2a9268895",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"pm.environment.set(\"contactId\", jsonData._id);",
+											"",
+											"pm.test(\"Response Content-Type is JSON\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+											"});",
+											"",
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});",
+											"",
+											"pm.test(\"JSON response object has correct fields\", function () {",
+											"    pm.expect(jsonData).to.be.an('object');",
+											"    pm.expect(jsonData).to.have.all.keys('_id', 'firstName', 'lastName', 'birthdate', 'email', 'phone', 'street1', 'street2', 'city', 'stateProvince', 'postalCode', 'country', 'owner', '__v');",
+											"});",
+											"",
+											"pm.test(\"User basic identity fields have valid types\", function () {",
+											"    pm.expect(jsonData._id).to.be.a('string');",
+											"    pm.expect(jsonData.firstName).to.be.a('string');",
+											"    pm.expect(jsonData.lastName).to.be.a('string');",
+											"    pm.expect(jsonData.birthdate).to.be.a('string');",
+											"});",
+											"",
+											"pm.test(\"User contact info fields are valid\", function () {",
+											"    pm.expect(jsonData.email).to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/);",
+											"    pm.expect(jsonData.phone).to.be.a('string');",
+											"});",
+											"",
+											"pm.test(\"User address fields have valid types\", function () {",
+											"    pm.expect(jsonData.street1).to.be.a('string');",
+											"    pm.expect(jsonData.street2).to.be.a('string');",
+											"    pm.expect(jsonData.city).to.be.a('string');",
+											"    pm.expect(jsonData.stateProvince).to.be.a('string');",
+											"    pm.expect(jsonData.postalCode).to.be.a('string');",
+											"    pm.expect(jsonData.country).to.be.a('string');",
+											"});",
+											"",
+											"pm.test(\"User metadata fields are valid\", function () {",
+											"    pm.expect(jsonData.owner).to.be.a('string');",
+											"    pm.expect(jsonData.__v).to.be.a('number');",
+											"});",
+											"",
+											"pm.test(\"User basic identity fields match environment values\", function () {",
+											"    pm.expect(jsonData.firstName).to.eql(pm.environment.get(\"firstName\"));",
+											"    pm.expect(jsonData.lastName).to.eql(pm.environment.get(\"lastName\"));",
+											"    pm.expect(jsonData.birthdate).to.eql(pm.environment.get(\"birthDate\"));",
+											"});",
+											"",
+											"pm.test(\"User contact fields match environment values\", function () {",
+											"    pm.expect(jsonData.email).to.eql(pm.environment.get(\"emailAddress\"));",
+											"    pm.expect(jsonData.phone).to.eql(pm.environment.get(\"phone\"));",
+											"});",
+											"",
+											"pm.test(\"User address fields match environment values\", function () {",
+											"    pm.expect(jsonData.street1).to.eql(pm.environment.get(\"street\"));",
+											"    pm.expect(jsonData.street2).to.eql(pm.environment.get(\"house\"));",
+											"    pm.expect(jsonData.stateProvince).to.eql(pm.environment.get(\"province\"));",
+											"    pm.expect(jsonData.city).to.eql(pm.environment.get(\"city\"));",
+											"    pm.expect(jsonData.postalCode).to.eql(pm.environment.get(\"postalCode\"));",
+											"    pm.expect(jsonData.country).to.eql(pm.environment.get(\"country\"));",
+											"});",
+											"",
+											"pm.test(\"User ownership field matches environment value\", function () {",
+											"    pm.expect(jsonData.owner).to.eql(pm.environment.get(\"userId\"));",
+											"});",
+											"",
+											"pm.test(\"contactId is saved to environment\", function () {",
+											"    pm.expect(pm.environment.get(\"contactId\")).to.eql(jsonData._id);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "ca70c473-0b2a-4c16-9932-278f959d6dc2",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48037874-66aead23-5a03-4685-91c1-dd8f8b50f041",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"{{lastName}}\",\n    \"birthdate\": \"{{birthDate}}\",\n    \"email\": \"{{emailAddress}}\",\n    \"phone\": \"{{phone}}\",\n    \"street1\": \"{{street}}\",\n    \"street2\": \"{{house}}\",\n    \"city\": \"{{city}}\",\n    \"stateProvince\": \"{{province}}\",\n    \"postalCode\": \"{{postalCode}}\",\n    \"country\": \"{{country}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{contactListUrl}}contacts",
+									"host": [
+										"{{contactListUrl}}contacts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Contact List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "839a4955-b62f-4b5d-a7a6-10dca7ee3516",
+										"exec": [
+											"var jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Response Content-Type is JSON\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+											"});",
+											"",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"All objects in the array have the correct fields\", function () {",
+											"    pm.expect(jsonData).to.be.an('array').that.is.not.empty;",
+											"",
+											"    const expectedKeys = [",
+											"        '_id', 'firstName', 'lastName', 'birthdate', 'email', 'phone',",
+											"        'street1', 'street2', 'city', 'stateProvince', 'postalCode',",
+											"        'country', 'owner', '__v'",
+											"    ];",
+											"",
+											"    jsonData.forEach((item, index) => {",
+											"        pm.expect(item, `Item at index ${index}`).to.be.an('object');",
+											"        pm.expect(item, `Item at index ${index}`).to.have.all.keys(expectedKeys);",
+											"    });",
+											"});",
+											"",
+											"pm.test(\"JSON response fields have valid types\", function () {",
+											"    jsonData.forEach((item, index) => {",
+											"        pm.expect(item._id, `Item at index ${index}`).to.be.a('string');",
+											"        pm.expect(item.firstName, `Item at index ${index}`).to.be.a('string');",
+											"        pm.expect(item.lastName, `Item at index ${index}`).to.be.a('string');",
+											"        pm.expect(item.birthdate, `Item at index ${index}`).to.be.a('string');",
+											"        pm.expect(item.email, `Item at index ${index}`).to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/);",
+											"        pm.expect(item.phone, `Item at index ${index}`).to.be.a('string');",
+											"        pm.expect(item.street1, `Item at index ${index}`).to.be.a('string');",
+											"        pm.expect(item.street2, `Item at index ${index}`).to.be.a('string');",
+											"        pm.expect(item.city, `Item at index ${index}`).to.be.a('string');",
+											"        pm.expect(item.stateProvince, `Item at index ${index}`).to.be.a('string');",
+											"        pm.expect(item.city, `Item at index ${index}`).to.be.a('string');",
+											"        pm.expect(item.postalCode, `Item at index ${index}`).to.be.a('string');",
+											"        pm.expect(item.country, `Item at index ${index}`).to.be.a('string');",
+											"        pm.expect(item.owner, `Item at index ${index}`).to.be.a('string');",
+											"        pm.expect(item.__v, `Item at index ${index}`).to.be.a('number');",
+											"    });",
+											"});",
+											"",
+											"pm.test(\"JSON response fields have correct values\", function () {",
+											"    const lastItem = jsonData[jsonData.length - 1];",
+											"",
+											"    pm.expect(lastItem.firstName).to.not.be.null;",
+											"    pm.expect(lastItem.firstName).to.eql(pm.environment.get(\"firstName\"));",
+											"    pm.expect(lastItem.lastName).to.eql(pm.environment.get(\"lastName\"));",
+											"    pm.expect(lastItem.birthdate).to.eql(pm.environment.get(\"birthDate\"));",
+											"    pm.expect(lastItem.email).to.eql(pm.environment.get(\"emailAddress\"));",
+											"    pm.expect(lastItem.phone).to.eql(pm.environment.get(\"phone\"));",
+											"    pm.expect(lastItem.street1).to.eql(pm.environment.get(\"street\"));",
+											"    pm.expect(lastItem.street2).to.eql(pm.environment.get(\"house\"));",
+											"    pm.expect(lastItem.city).to.eql(pm.environment.get(\"city\"));",
+											"    pm.expect(lastItem.stateProvince).to.eql(pm.environment.get(\"province\"));",
+											"    pm.expect(lastItem.city).to.eql(pm.environment.get(\"city\"));",
+											"    pm.expect(lastItem.postalCode).to.eql(pm.environment.get(\"postalCode\"));",
+											"    pm.expect(lastItem.country).to.eql(pm.environment.get(\"country\"));",
+											"    pm.expect(lastItem.owner).to.eql(pm.environment.get(\"userId\"));",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48037874-c853ed8d-2dfe-4e15-b4ee-96b9567fdb21",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{contactListUrl}}contacts",
+									"host": [
+										"{{contactListUrl}}contacts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Contact",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "efec4179-e93d-485e-b457-716d63741d4f",
+										"exec": [
+											"var jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Response Content-Type is JSON\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+											"});",
+											"",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"JSON response object has correct fields\", function () {",
+											"    pm.expect(jsonData).to.be.an('object');",
+											"    pm.expect(jsonData).to.have.all.keys('_id', 'firstName', 'lastName', 'birthdate', 'email', 'phone', 'street1', 'street2', 'city', 'stateProvince', 'postalCode', 'country', 'owner', '__v');",
+											"});",
+											"",
+											"pm.test(\"JSON response fields have valid types\", function () {",
+											"    pm.expect(jsonData._id).to.be.a('string');",
+											"    pm.expect(jsonData.firstName).to.be.a('string');",
+											"    pm.expect(jsonData.lastName).to.be.a('string');",
+											"    pm.expect(jsonData.birthdate).to.be.a('string');",
+											"    pm.expect(jsonData.email).to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/);",
+											"    pm.expect(jsonData.phone).to.be.a('string');",
+											"    pm.expect(jsonData.street1).to.be.a('string');",
+											"    pm.expect(jsonData.street2).to.be.a('string');",
+											"    pm.expect(jsonData.stateProvince).to.be.a('string');",
+											"    pm.expect(jsonData.city).to.be.a('string');",
+											"    pm.expect(jsonData.postalCode).to.be.a('string');",
+											"    pm.expect(jsonData.country).to.be.a('string');",
+											"    pm.expect(jsonData.owner).to.be.a('string');",
+											"    pm.expect(jsonData.__v).to.be.a('number');",
+											"});",
+											"",
+											"pm.test(\"JSON response fields have correct values\", function () {",
+											"    pm.expect(jsonData.firstName).to.not.be.null;",
+											"    pm.expect(jsonData.firstName).to.eql(pm.environment.get(\"firstName\"));",
+											"    pm.expect(jsonData.lastName).to.eql(pm.environment.get(\"lastName\"));",
+											"    pm.expect(jsonData.birthdate).to.eql(pm.environment.get(\"birthDate\"));",
+											"    pm.expect(jsonData.email).to.eql(pm.environment.get(\"emailAddress\"));",
+											"    pm.expect(jsonData.phone).to.eql(pm.environment.get(\"phone\"));",
+											"    pm.expect(jsonData.street1).to.eql(pm.environment.get(\"street\"));",
+											"    pm.expect(jsonData.street2).to.eql(pm.environment.get(\"house\"));",
+											"    pm.expect(jsonData.stateProvince).to.eql(pm.environment.get(\"province\"));",
+											"    pm.expect(jsonData.city).to.eql(pm.environment.get(\"city\"));",
+											"    pm.expect(jsonData.postalCode).to.eql(pm.environment.get(\"postalCode\"));",
+											"    pm.expect(jsonData.country).to.eql(pm.environment.get(\"country\"));",
+											"    pm.expect(jsonData.owner).to.eql(pm.environment.get(\"userId\"));",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48037874-f47bd700-900b-4d50-996d-cd64911911f3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{contactListUrl}}contacts/{{contactId}}",
+									"host": [
+										"{{contactListUrl}}contacts"
+									],
+									"path": [
+										"{{contactId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Contact",
+							"id": "48037874-b8406eba-36e5-457f-b002-cd39cf8c0e38",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"John H\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{contactListUrl}}contacts/{{contactId}}",
+									"host": [
+										"{{contactListUrl}}contacts"
+									],
+									"path": [
+										"{{contactId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Complete Contact",
+							"id": "48037874-1328733b-65ee-40b6-8fdd-80244892560f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"John L\",\n    \"lastName\": \"Doe\",\n    \"birthdate\": \"1981-05-10\",\n    \"email\": \"jdoe@test.com\",\n    \"phone\": \"403-586-2463\",\n    \"street1\": \"1 Main St.\",\n    \"street2\": \"Apartment 8B\",\n    \"city\": \"Endmonton\",\n    \"stateProvince\": \"AB\",\n    \"postalCode\": \"T4E 4R5\",\n    \"country\": \"Canada\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{contactListUrl}}contacts/{{contactId}}",
+									"host": [
+										"{{contactListUrl}}contacts"
+									],
+									"path": [
+										"{{contactId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Contact",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e39c4af6-f73e-47b7-a3e2-24fb94b619a3",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48037874-64f63318-3648-4565-af3c-675ac5c60ccf",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{contactListUrl}}contacts/{{contactId}}",
+									"host": [
+										"{{contactListUrl}}contacts"
+									],
+									"path": [
+										"{{contactId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "48037874-58edcb6a-8b60-40d3-9ac4-078bb798ad8c",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "eff8f1bc-7c49-4d37-97bf-aeb16ea80340",
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"contactListUrl\") + \"users/login\",",
+									"        method: \"POST\",",
+									"        header: 'Content-Type: application/json',",
+									"        body: {",
+									"            mode: 'raw',",
+									"            raw: JSON.stringify({",
+									"                email: pm.environment.get(\"addEmailAddress\"),",
+									"                password: pm.environment.get(\"addPassword\")",
+									"            })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err) {",
+									"            const jsonData = res.json();",
+									"            pm.environment.set(\"token\", jsonData.token);",
+									"            pm.environment.set(\"userId\", jsonData.user._id);",
+									"        } else {",
+									"            console.error(\"Login request failed\", err);",
+									"        }",
+									"    });",
+									"}"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "921bdb48-433c-4ca3-8c01-0873cb54cd27",
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			],
+			"id": "48037874-6417f24c-ba09-4beb-915e-e29c5f3b3cac",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "241d9c30-8c96-401a-a72a-993366610d6f",
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f7af5223-117c-4e00-b8d6-f12d0b2f29eb",
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Negative Tests",
+			"item": [
+				{
+					"name": "Setup - Add Contact",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "91f8faed-8dbf-43e3-a45d-fdd2a9268895",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"contactId\", jsonData._id);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "df192650-89f3-4f36-b927-eea9734740a2",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "48037874-2c316ee5-0792-4ae9-8bde-1103ccf92e2f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"{{lastName}}\",\n    \"birthdate\": \"{{birthDate}}\",\n    \"email\": \"{{emailAddress}}\",\n    \"phone\": \"{{phone}}\",\n    \"street1\": \"{{street}}\",\n    \"street2\": \"{{house}}\",\n    \"city\": \"{{city}}\",\n    \"stateProvince\": \"{{province}}\",\n    \"postalCode\": \"{{postalCode}}\",\n    \"country\": \"{{country}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{contactListUrl}}contacts",
+							"host": [
+								"{{contactListUrl}}contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Not Found - Get Contact",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8ad6eb4e-2396-47a1-9879-a8f17a4a7e44",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "48037874-c0fb5499-335b-4554-91d0-9236898fb5b6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Shoma\",\n    \"lastName\": \"Imran\",\n    \"email\": \"simran@test.com\",\n    \"password\": \"myPassword\"\n}"
+						},
+						"url": {
+							"raw": "{{contactListUrl}}contacts/{{invalidContactId}}",
+							"host": [
+								"{{contactListUrl}}contacts"
+							],
+							"path": [
+								"{{invalidContactId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Not Found - Update Contact",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "57ec37c5-3aea-4ca6-9261-a7681a51a3d6",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "d2b333ff-a060-4370-9049-ca7df7cf79b9",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "48037874-8c198c30-f847-4097-805b-22c2383d0f4c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"John H\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{contactListUrl}}contacts/{{invalidContactId}}",
+							"host": [
+								"{{contactListUrl}}contacts"
+							],
+							"path": [
+								"{{invalidContactId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid Email Address Update Contact",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f373ea42-eed0-475b-a537-2f4c4a54a358",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "48037874-5f924462-eb95-4f9c-a716-930121f02cda",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{contactListUrl}}contacts/{{contactId}}",
+							"host": [
+								"{{contactListUrl}}contacts"
+							],
+							"path": [
+								"{{contactId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid Birthdate Update Contact",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f373ea42-eed0-475b-a537-2f4c4a54a358",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Error message for invalid birthdate is returned\", function () {",
+									"     pm.expect(pm.response.text()).to.include(\"Contact validation failed\");",
+									"     pm.expect(pm.response.text()).to.include(\"birthdate: Birthdate is invalid\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "48037874-973f9c30-d26a-4b6b-82c3-b83b387e807c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"birthdate\": \"1980-13-10\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{contactListUrl}}contacts/{{contactId}}",
+							"host": [
+								"{{contactListUrl}}contacts"
+							],
+							"path": [
+								"{{contactId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Missing Required Field Add Contact",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6e214382-e291-4c8a-bd4a-6ccc7d15eefa",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Missing field error message is returned\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Contact validation failed\");",
+									"    pm.expect(pm.response.text()).to.include(\"`lastName` is required.\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "48037874-ecda3dee-023f-410c-ad02-274f797634f7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"\",\n    \"birthdate\": \"1981-01-10\",\n    \"email\": \"jdoe@test.com\",\n    \"phone\": \"403-586-2463\",\n    \"street1\": \"1 Main St.\",\n    \"street2\": \"Apartment 8B\",\n    \"city\": \"Endmonton\",\n    \"stateProvince\": \"AB\",\n    \"postalCode\": \"T4E 4R5\",\n    \"country\": \"Canada\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{contactListUrl}}contacts",
+							"host": [
+								"{{contactListUrl}}contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Last Name Too Long Add Contact",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e5e73402-3a83-4e71-894d-3913f9075cf7",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "48037874-2db2c48a-0b92-4cc1-a139-fa3f4e5b85ee",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"dskfhjkhkjgsdkjlkdjf lksdjflksdjf klsfjl. sdfklsdkfjl ksjflk jls\",\n    \"birthdate\": \"1981-01-10\",\n    \"email\": \"jdoe@test.com\",\n    \"phone\": \"403-586-2463\",\n    \"street1\": \"1 Main St.\",\n    \"street2\": \"Apartment 8B\",\n    \"city\": \"Endmonton\",\n    \"stateProvince\": \"AB\",\n    \"postalCode\": \"T4E 4R5\",\n    \"country\": \"Canada\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{contactListUrl}}contacts",
+							"host": [
+								"{{contactListUrl}}contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unauthorized - Get Contact List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7c7f52a9-c09a-490c-89b3-f73da5b20e16",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "48037874-2b701ba0-b049-4511-938e-7bf43528909f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Shoma\",\n    \"lastName\": \"Imran\",\n    \"email\": \"simran@test.com\",\n    \"password\": \"myPassword\"\n}"
+						},
+						"url": {
+							"raw": "{{contactListUrl}}contacts",
+							"host": [
+								"{{contactListUrl}}contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unauthorized - Update Contact",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "544a57cf-af03-4f70-8e78-349c294c214f",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "48037874-29268da4-ad25-4cc1-8571-c628caf8f4dc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"John H\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{contactListUrl}}contacts/{{contactId}}",
+							"host": [
+								"{{contactListUrl}}contacts"
+							],
+							"path": [
+								"{{contactId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cleanup - Delete Contact",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e780a712-05b8-4061-83fe-f8b510082c43",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "48037874-a4fcd044-ffc5-4101-9820-0e9e85720b47",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{contactListUrl}}contacts/{{contactId}}",
+							"host": [
+								"{{contactListUrl}}contacts"
+							],
+							"path": [
+								"{{contactId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "48037874-9af1b16f-2629-4e61-8143-c415af39177a",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b248f8fb-4ac4-4583-876c-330600085999",
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4ea830c-ba31-43e6-b0a2-82f90588a902",
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Cleanup",
+			"item": [
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "77df9f2d-afca-44ab-a27a-c857c9f280ba",
+								"exec": [
+									"pm.environment.unset(\"token\");"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "48037874-c38aadbd-74a4-4e0d-82d1-3d1adde58964",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{contactListUrl}}users/logout",
+							"host": [
+								"{{contactListUrl}}users"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "48037874-da861a8f-4e27-4a94-8a68-81483197a15b"
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a1ff6b76-c8ef-40c8-a4ab-bc03d2a31e61",
+						"exec": [
+							"const jsonData = pm.response.json();",
+							"const user = jsonData.user;",
+							"pm.environment.set(\"userId\", jsonData.user._id);",
+							"pm.environment.set(\"token\", jsonData.token);",
+							"",
+							"pm.test(\"Response Content-Type is JSON\", function () {",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"JSON Response has user and token fields\", function () {",
+							"    pm.expect(jsonData).to.be.an('object');",
+							"    pm.expect(jsonData).to.have.all.keys('user', 'token');",
+							"});",
+							"",
+							"pm.test(\"User object has correct fields\", function () {",
+							"    var user = jsonData.user;",
+							"    pm.expect(user).to.be.an('object');",
+							"    pm.expect(user).to.have.all.keys('_id', 'firstName', 'lastName', 'email', '__v');",
+							"});",
+							"",
+							"pm.test(\"User basic info fields have valid types\", function () {",
+							"    pm.expect(user._id).to.be.a('string');",
+							"    pm.expect(user.__v).to.be.a('number');",
+							"});",
+							"",
+							"pm.test(\"User name fields have valid types\", function () {",
+							"    pm.expect(user.firstName).to.be.a('string');",
+							"    pm.expect(user.lastName).to.be.a('string');",
+							"});",
+							"",
+							"pm.test(\"User email field has valid format\", function () {",
+							"    pm.expect(user.email).to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/);",
+							"});",
+							"",
+							"pm.test(\"User name fields have correct values\", function () {",
+							"    pm.expect(user.firstName).to.eql(pm.environment.get(\"addFirstName\"));",
+							"    pm.expect(user.lastName).to.eql(pm.environment.get(\"addLastName\"));",
+							"});",
+							"",
+							"pm.test(\"User email field has correct values\", function () {",
+							"    pm.expect(user.email).to.eql(pm.environment.get(\"addEmailAddress\"));",
+							"});",
+							"",
+							"pm.test(\"Token is present in response\", function () {",
+							"    pm.expect(jsonData.token).to.not.be.null;",
+							"});",
+							"",
+							"pm.test(\"Token is a valid JWT format\", function () {",
+							"    pm.expect(jsonData.token).to.match(/^ey[A-Za-z0-9\\-_]+\\.[A-Za-z0-9\\-_]+\\.[A-Za-z0-9\\-_]+$/);",
+							"});",
+							"",
+							"pm.test(\"User id is saved to environment\", function () {",
+							"    pm.expect(pm.environment.get(\"userId\")).to.eql(jsonData.user._id);",
+							"});",
+							"",
+							"pm.test(\"Token is saved to environment\", function () {",
+							"    pm.expect(pm.environment.get(\"token\")).to.eql(jsonData.token);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"id": "48037874-afb38bc0-32c6-4fa0-90b6-82d378bdcd6d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"{{addEmailAddress}}\",\n    \"password\": \"{{addPassword}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{contactListUrl}}users/login",
+					"host": [
+						"{{contactListUrl}}users"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "23310a8d-f64f-4921-8c3a-09f29782e99d",
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "95785924-6e21-42cb-ac1e-8f84c89b603f",
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					"pm.test(\"Response time is less than 400ms\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(400);",
+					"});"
+				]
+			}
+		}
+	]
+}
