@@ -32,7 +32,6 @@ These tests validate key functionalities like:
 └── README.md
 
 
-
 ---
 
 ## ⚙️ Setup Instructions
@@ -44,19 +43,25 @@ If you don’t have Node.js installed, download it from:
 ### 2. Install Newman
 ```bash
 npm install -g newman
-3. Install Newman HTMLExtra Reporter
-bash
+```
+
+### 3. Install Newman HTMLExtra Reporter
+```bash
 npm install -g newman-reporter-htmlextra
+```
+
 🚀 Running the Tests
 Run the collection with the environment
-bash
+```bash
 newman run collections/<collection.json> -e environments/<environment.json>
+```
 Run with HTML Report
-bash
+```bash
 newman run collections/<collection.json> \
   -e environments/<environment.json> \
   -r htmlextra \
   --reporter-htmlextra-export ./reports/ContactListTestReport.html
+```
 Once the run completes, open the generated report file in your browser:
 
 reports/ContactListTestReport.html
