@@ -1511,11 +1511,25 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "69562cdb-4856-45d9-92df-21bdd3a3ecba",
+								"id": "c25ebb29-b0fe-417a-9cec-2abcf0dccae3",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
-									"});"
+									"});",
+									"",
+									"pm.environment.unset(\"token\");"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "cddafcaa-75da-446c-a41e-6973511feefe",
+								"exec": [
+									""
 								],
 								"type": "text/javascript",
 								"packages": {},
