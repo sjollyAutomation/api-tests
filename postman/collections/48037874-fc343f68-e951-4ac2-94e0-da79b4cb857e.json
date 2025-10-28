@@ -753,7 +753,7 @@
 									"script": {
 										"id": "72f482f9-97f1-4d47-a2a2-b62ecf455e92",
 										"exec": [
-											"const updatedFirstName = \"John H\";"
+											"pm.variables.set(\"updatedFirstName\", \"John H\");"
 										],
 										"type": "text/javascript",
 										"packages": {},
@@ -807,7 +807,7 @@
 											"});",
 											"",
 											"pm.test(\"JSON response basic identity fields match environment values\", function () {",
-											"    pm.expect(jsonData.firstName).to.eql(pm.environment.get(\"firstName\"));",
+											"    pm.expect(jsonData.firstName).to.eql(pm.variables.get(\"updatedFirstName\"));",
 											"    pm.expect(jsonData.lastName).to.eql(pm.environment.get(\"lastName\"));",
 											"    pm.expect(jsonData.birthdate).to.eql(pm.environment.get(\"birthDate\"));",
 											"});",
