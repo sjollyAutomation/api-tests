@@ -1148,19 +1148,19 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "241d9c30-8c96-401a-a72a-993366610d6f",
+						"id": "29a80e0b-46f7-4c9d-8b7d-97cc01738707",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
 						"exec": [
-							""
+							"pm.variables.set(\"contactDeletedMes\")"
 						]
 					}
 				},
 				{
 					"listen": "test",
 					"script": {
-						"id": "f7af5223-117c-4e00-b8d6-f12d0b2f29eb",
+						"id": "f519fabb-e724-4061-99b4-5e549cf5ded8",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
