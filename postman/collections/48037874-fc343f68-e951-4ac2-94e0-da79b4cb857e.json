@@ -1788,11 +1788,24 @@
 							"script": {
 								"id": "e780a712-05b8-4061-83fe-f8b510082c43",
 								"exec": [
-									""
+									"pm.test(\"Response Content-Type is HTML\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('text/html');",
+									"});",
+									"",
+									"pm.test(\"Response body confirms contact deleted\", function () {",
+									"    pm.expect(pm.response.text()).to.eql(pm.variables.get(\"contactDeletedMessage\"));",
+									"})"
 								],
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"packages": {},
+								"type": "text/javascript"
 							}
 						}
 					],
