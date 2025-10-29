@@ -1617,6 +1617,20 @@
 								"packages": {},
 								"requests": {}
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "fd66290c-7776-4fd6-bf0f-185c4be9988e",
+								"exec": [
+									"pm.variables.set(\"longLastName\", \"{{lastName}}\" + \"{{lastName}}\" + \"{{lastName}}\");",
+									"",
+									"console.log(pm.variables.get(\"longLastName\"));"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
 						}
 					],
 					"id": "48037874-2db2c48a-0b92-4cc1-a139-fa3f4e5b85ee",
