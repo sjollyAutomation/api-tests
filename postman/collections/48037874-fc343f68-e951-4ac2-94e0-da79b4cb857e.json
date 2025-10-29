@@ -1434,6 +1434,10 @@
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {",
 									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Response body contains error message\", function () {",
+									"    pm.expect(pm.response.json().message).to.include(\"Email is invalid\");",
 									"});"
 								],
 								"type": "text/javascript",
