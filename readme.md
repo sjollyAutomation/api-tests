@@ -21,16 +21,13 @@ These tests validate key functionalities like:
 
 ## 📁 Repository Structure
 
-.
-├── collections/
-│ └── *.json
-├── environments/
-│ └── *.json
-├── reports/
-│ └── (generated HTML reports will appear here)
-├── .gitignore
-└── README.md
-
+api-tests/
+├── README.md
+└── postman/
+    ├── collections/
+    │   └── contact-list.postman_collection.json
+    └── environments/
+        └── contact-list.postman_environment.json
 
 ---
 
