@@ -1500,7 +1500,7 @@
 									"    const jsonData = pm.response.json();",
 									"    const errorMessage = \"Birthdate is invalid\";",
 									"    ",
-									"    pm.expect(jsonData.errors.bithdate.message).to.include(errorMessage);",
+									"    pm.expect(jsonData.errors.birthdate.message).to.include(errorMessage);",
 									"    pm.expect(jsonData.message).to.include(errorMessage);",
 									"});"
 								],
