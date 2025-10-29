@@ -1586,7 +1586,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"\",\n    \"birthdate\": \"1981-01-10\",\n    \"email\": \"jdoe@test.com\",\n    \"phone\": \"403-586-2463\",\n    \"street1\": \"1 Main St.\",\n    \"street2\": \"Apartment 8B\",\n    \"city\": \"Endmonton\",\n    \"stateProvince\": \"AB\",\n    \"postalCode\": \"T4E 4R5\",\n    \"country\": \"Canada\"\n}",
+							"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"\",\n    \"birthdate\": \"{{birthDate}}\",\n    \"email\": \"{{emailAddress}}\",\n    \"phone\": \"{{phone}}\",\n    \"street1\": \"{{street}}\",\n    \"street2\": \"{{house}}\",\n    \"city\": \"{{city}}\",\n    \"stateProvince\": \"{{province}}\",\n    \"postalCode\": \"{{postalCode}}\",\n    \"country\": \"{{country}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
