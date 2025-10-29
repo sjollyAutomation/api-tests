@@ -1698,6 +1698,10 @@
 								"exec": [
 									"pm.test(\"Status code is 401\", function () {",
 									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"Response body contains error message for unauthentication\", function () {",
+									"    pm.expect(pm.response.json().error).to.eql(pm.variables.get(\"unauthenticatedMessage\"));",
 									"});"
 								],
 								"type": "text/javascript",
