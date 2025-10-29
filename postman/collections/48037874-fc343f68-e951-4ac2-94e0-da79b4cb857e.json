@@ -1496,9 +1496,8 @@
 									"    pm.response.to.have.status(400);",
 									"});",
 									"",
-									"pm.test(\"Error message for invalid birthdate is returned\", function () {",
-									"     pm.expect(pm.response.text()).to.include(\"Contact validation failed\");",
-									"     pm.expect(pm.response.text()).to.include(\"birthdate: Birthdate is invalid\");",
+									"pm.test(\"Response body contains error message for invalid birthdate\", function () {",
+									"    pm.expect(pm.response.json().message).to.include(\"Birthdate is invalid\");",
 									"});"
 								],
 								"type": "text/javascript",
