@@ -828,7 +828,9 @@
 											"",
 											"pm.test(\"JSON response ownership field matches environment value\", function () {",
 											"    pm.expect(jsonData.owner).to.eql(pm.environment.get(\"userId\"));",
-											"});"
+											"});",
+											"",
+											"pm.variables.unset(\"updatedFirstName\");"
 										],
 										"type": "text/javascript",
 										"packages": {},
@@ -967,7 +969,19 @@
 											"",
 											"pm.test(\"JSON response ownership field matches environment value\", function () {",
 											"    pm.expect(jsonData.owner).to.eql(pm.environment.get(\"userId\"));",
-											"});"
+											"});",
+											"",
+											"pm.variables.unset(\"updatedFirstName\");",
+											"pm.variables.unset(\"updatedLastName\");",
+											"pm.variables.unset(\"updatedBirthDate\");",
+											"pm.variables.unset(\"updatedEmail\");",
+											"pm.variables.unset(\"updatedPhone\");",
+											"pm.variables.unset(\"updatedStreet\");",
+											"pm.variables.unset(\"updatedHouse\");",
+											"pm.variables.unset(\"updatedCity\");",
+											"pm.variables.unset(\"updatedProvince\");",
+											"pm.variables.unset(\"updatedPostalCode\");",
+											"pm.variables.unset(\"updatedCountry\");"
 										],
 										"type": "text/javascript",
 										"packages": {},
@@ -1025,8 +1039,8 @@
 											"    pm.expect(pm.response.headers.get('Content-Type')).to.include('text/html');",
 											"});",
 											"",
-											"pm.test(\"Response Body is 'Contact deleted'\", function () {",
-											"    pm.expect(pm.response.text()).to.equal('Contact deleted');",
+											"pm.test(\"Response body confirms contact deleted\", function () {",
+											"    pm.expect(pm.response.text()).to.eql(pm.variables.get(\"contactDeletedMessage\"));",
 											"})"
 										],
 										"type": "text/javascript",
@@ -1134,19 +1148,19 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "241d9c30-8c96-401a-a72a-993366610d6f",
+						"id": "e54566c8-d532-4322-8b82-caf10afdb30e",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
 						"exec": [
-							""
+							"pm.variables.set(\"contactDeletedMessage\", \"Contact deleted\");"
 						]
 					}
 				},
 				{
 					"listen": "test",
 					"script": {
-						"id": "f7af5223-117c-4e00-b8d6-f12d0b2f29eb",
+						"id": "b27c83de-3378-4e7c-affa-b635ed6e07cf",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
@@ -1420,6 +1434,14 @@
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {",
 									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Response body contains error message for invalid email address\", function () {",
+									"    const jsonData = pm.response.json();",
+									"    const errorMessage = \"Email is invalid\";",
+									"    ",
+									"    pm.expect(jsonData.errors.email.message).to.include(errorMessage);",
+									"    pm.expect(jsonData.message).to.include(errorMessage);",
 									"});"
 								],
 								"type": "text/javascript",
@@ -1478,9 +1500,12 @@
 									"    pm.response.to.have.status(400);",
 									"});",
 									"",
-									"pm.test(\"Error message for invalid birthdate is returned\", function () {",
-									"     pm.expect(pm.response.text()).to.include(\"Contact validation failed\");",
-									"     pm.expect(pm.response.text()).to.include(\"birthdate: Birthdate is invalid\");",
+									"pm.test(\"Response body contains error message for invalid birthdate\", function () {",
+									"    const jsonData = pm.response.json();",
+									"    const errorMessage = \"Birthdate is invalid\";",
+									"    ",
+									"    pm.expect(jsonData.errors.birthdate.message).to.include(errorMessage);",
+									"    pm.expect(jsonData.message).to.include(errorMessage);",
 									"});"
 								],
 								"type": "text/javascript",
@@ -1539,9 +1564,12 @@
 									"    pm.response.to.have.status(400);",
 									"});",
 									"",
-									"pm.test(\"Missing field error message is returned\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"Contact validation failed\");",
-									"    pm.expect(pm.response.text()).to.include(\"`lastName` is required.\");",
+									"pm.test(\"Response body contains error message for missing required field\", function () {",
+									"    const jsonData = pm.response.json();",
+									"    const errorMessage = \"`lastName` is required.\";",
+									"    ",
+									"    pm.expect(jsonData.errors.lastName.message).to.include(errorMessage);",
+									"    pm.expect(jsonData.message).to.include(errorMessage);",
 									"});"
 								],
 								"type": "text/javascript",
@@ -1569,7 +1597,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"\",\n    \"birthdate\": \"1981-01-10\",\n    \"email\": \"jdoe@test.com\",\n    \"phone\": \"403-586-2463\",\n    \"street1\": \"1 Main St.\",\n    \"street2\": \"Apartment 8B\",\n    \"city\": \"Endmonton\",\n    \"stateProvince\": \"AB\",\n    \"postalCode\": \"T4E 4R5\",\n    \"country\": \"Canada\"\n}",
+							"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"\",\n    \"birthdate\": \"{{birthDate}}\",\n    \"email\": \"{{emailAddress}}\",\n    \"phone\": \"{{phone}}\",\n    \"street1\": \"{{street}}\",\n    \"street2\": \"{{house}}\",\n    \"city\": \"{{city}}\",\n    \"stateProvince\": \"{{province}}\",\n    \"postalCode\": \"{{postalCode}}\",\n    \"country\": \"{{country}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1595,7 +1623,31 @@
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {",
 									"    pm.response.to.have.status(400);",
-									"});"
+									"});",
+									"",
+									"pm.test(\"Response body contains error message for long lastname field\", function () {",
+									"    const jsonData = pm.response.json();",
+									"    const longLastName = pm.variables.get('longLastName');",
+									"    const errorMessage = `Path \\`lastName\\` (\\`${longLastName}\\`) is longer than the maximum allowed length (20).`;",
+									"    ",
+									"    pm.expect(jsonData.errors.lastName.message).to.include(errorMessage);",
+									"    pm.expect(jsonData.message).to.include(errorMessage);",
+									"});",
+									"",
+									"pm.variables.unset(\"longLastName\");"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "fd66290c-7776-4fd6-bf0f-185c4be9988e",
+								"exec": [
+									"const lastName = pm.environment.get(\"lastName\");",
+									"pm.variables.set(\"longLastName\", lastName.repeat(5));"
 								],
 								"type": "text/javascript",
 								"packages": {},
@@ -1622,7 +1674,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"dskfhjkhkjgsdkjlkdjf lksdjflksdjf klsfjl. sdfklsdkfjl ksjflk jls\",\n    \"birthdate\": \"1981-01-10\",\n    \"email\": \"jdoe@test.com\",\n    \"phone\": \"403-586-2463\",\n    \"street1\": \"1 Main St.\",\n    \"street2\": \"Apartment 8B\",\n    \"city\": \"Endmonton\",\n    \"stateProvince\": \"AB\",\n    \"postalCode\": \"T4E 4R5\",\n    \"country\": \"Canada\"\n}",
+							"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"{{longLastName}}\",\n    \"birthdate\": \"{{birthDate}}\",\n    \"email\": \"{{emailAddress}}\",\n    \"phone\": \"{{phone}}\",\n    \"street1\": \"{{street}}\",\n    \"street2\": \"{{house}}\",\n    \"city\": \"{{city}}\",\n    \"stateProvince\": \"{{province}}\",\n    \"postalCode\": \"{{postalCode}}\",\n    \"country\": \"{{country}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1648,6 +1700,10 @@
 								"exec": [
 									"pm.test(\"Status code is 401\", function () {",
 									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"Response body contains error message for unauthentication\", function () {",
+									"    pm.expect(pm.response.json().error).to.eql(pm.variables.get(\"unauthenticatedMessage\"));",
 									"});"
 								],
 								"type": "text/javascript",
@@ -1686,6 +1742,10 @@
 								"exec": [
 									"pm.test(\"Status code is 401\", function () {",
 									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"Response body contains error message for unauthentication\", function () {",
+									"    pm.expect(pm.response.json().error).to.eql(pm.variables.get(\"unauthenticatedMessage\"));",
 									"});"
 								],
 								"type": "text/javascript",
@@ -1730,11 +1790,24 @@
 							"script": {
 								"id": "e780a712-05b8-4061-83fe-f8b510082c43",
 								"exec": [
-									""
+									"pm.test(\"Response Content-Type is HTML\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('text/html');",
+									"});",
+									"",
+									"pm.test(\"Response body confirms contact deleted\", function () {",
+									"    pm.expect(pm.response.text()).to.eql(pm.variables.get(\"contactDeletedMessage\"));",
+									"})"
 								],
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"packages": {},
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -1777,19 +1850,19 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "b248f8fb-4ac4-4583-876c-330600085999",
+						"id": "1b31e3d9-9014-425c-9f2c-6958987c798c",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
 						"exec": [
-							""
+							"pm.variables.set(\"unauthenticatedMessage\", \"Please authenticate.\");"
 						]
 					}
 				},
 				{
 					"listen": "test",
 					"script": {
-						"id": "b4ea830c-ba31-43e6-b0a2-82f90588a902",
+						"id": "cddd8cd4-4e5f-4fcc-b86d-bf1b98676342",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
