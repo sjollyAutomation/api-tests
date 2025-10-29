@@ -1617,10 +1617,9 @@
 									"    const jsonData = pm.response.json();",
 									"    const longLastName = pm.variables.get('longLastName');",
 									"    const errorMessage = `Path \\`lastName\\` (\\`${longLastName}\\`) is longer than the maximum allowed length (20).`;",
-									"    console.log(errorMessage);",
-									"    console.log(jsonData.errors.lastName.message);",
+									"    ",
 									"    pm.expect(jsonData.errors.lastName.message).to.include(errorMessage);",
-									"    //pm.expect(jsonData.message).to.include(errorMessage);",
+									"    pm.expect(jsonData.message).to.include(errorMessage);",
 									"});"
 								],
 								"type": "text/javascript",
