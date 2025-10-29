@@ -21,6 +21,7 @@ These tests validate key functionalities like:
 
 ## 📁 Repository Structure
 
+```text
 api-tests/
 ├── README.md
 └── postman/
@@ -28,6 +29,7 @@ api-tests/
     │   └── contact-list.postman_collection.json
     └── environments/
         └── contact-list.postman_environment.json
+```
 
 ---
 
