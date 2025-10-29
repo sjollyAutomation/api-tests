@@ -828,7 +828,9 @@
 											"",
 											"pm.test(\"JSON response ownership field matches environment value\", function () {",
 											"    pm.expect(jsonData.owner).to.eql(pm.environment.get(\"userId\"));",
-											"});"
+											"});",
+											"",
+											"pm.variables.unset(\"updatedFirstName\");"
 										],
 										"type": "text/javascript",
 										"packages": {},
