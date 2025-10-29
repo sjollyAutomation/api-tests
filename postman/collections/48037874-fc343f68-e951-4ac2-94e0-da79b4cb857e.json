@@ -1827,24 +1827,24 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "21ea0eff-976f-4fa5-8826-4a5ecab571ed",
+						"id": "905f77b6-c35b-4d9b-83f2-0dc45dbe6dee",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
 						"exec": [
-							"pm.variables.set(\"unauthenticatedMessage\", \"Please authenticate.\")"
+							"pm.variables.set(\"unauthenticatedMessage\", \"Please authenticate.\");"
 						]
 					}
 				},
 				{
 					"listen": "test",
 					"script": {
-						"id": "7f087a1d-ef8a-41c8-b107-0f70a933d42a",
+						"id": "af572a96-8d59-4e67-ba73-560516c57df3",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
 						"exec": [
-							""
+							"p"
 						]
 					}
 				}
