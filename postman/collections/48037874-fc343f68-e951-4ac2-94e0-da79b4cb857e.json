@@ -1148,19 +1148,19 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "29a80e0b-46f7-4c9d-8b7d-97cc01738707",
+						"id": "e54566c8-d532-4322-8b82-caf10afdb30e",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
 						"exec": [
-							"pm.variables.set(\"contactDeletedMes\")"
+							"pm.variables.set(\"contactDeletedMessage\", \"Contact deleted\");"
 						]
 					}
 				},
 				{
 					"listen": "test",
 					"script": {
-						"id": "f519fabb-e724-4061-99b4-5e549cf5ded8",
+						"id": "b27c83de-3378-4e7c-affa-b635ed6e07cf",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
