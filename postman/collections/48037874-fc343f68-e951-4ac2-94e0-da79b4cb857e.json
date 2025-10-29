@@ -1624,7 +1624,7 @@
 								"id": "fd66290c-7776-4fd6-bf0f-185c4be9988e",
 								"exec": [
 									"const lastName = pm.environment.get(\"lastName\");",
-									"pm.variables.set(\"longLastName\", lastName.repeat(4));"
+									"pm.variables.set(\"longLastName\", lastName.repeat(5));"
 								],
 								"type": "text/javascript",
 								"packages": {},
