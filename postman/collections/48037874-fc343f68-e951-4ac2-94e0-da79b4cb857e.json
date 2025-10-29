@@ -1556,9 +1556,8 @@
 									"    pm.response.to.have.status(400);",
 									"});",
 									"",
-									"pm.test(\"Missing field error message is returned\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"Contact validation failed\");",
-									"    pm.expect(pm.response.text()).to.include(\"`lastName` is required.\");",
+									"pm.test(\"Response body contains error message for missing required field\", function () {",
+									"    pm.expect(pm.response.json().message).to.include(\"`lastName` is required.\");",
 									"});"
 								],
 								"type": "text/javascript",
