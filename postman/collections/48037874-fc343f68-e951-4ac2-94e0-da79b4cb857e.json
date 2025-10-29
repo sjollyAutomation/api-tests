@@ -1827,19 +1827,19 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "56e9231e-8626-408c-85e9-2d1f2f5e2f65",
+						"id": "21ea0eff-976f-4fa5-8826-4a5ecab571ed",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
 						"exec": [
-							"pm.variables.set(\"unau\")"
+							"pm.variables.set(\"unauthenticatedMessage\", \"Please authenticate.\")"
 						]
 					}
 				},
 				{
 					"listen": "test",
 					"script": {
-						"id": "7c4ab1a3-7256-42c5-897e-5541f75aeecc",
+						"id": "7f087a1d-ef8a-41c8-b107-0f70a933d42a",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
