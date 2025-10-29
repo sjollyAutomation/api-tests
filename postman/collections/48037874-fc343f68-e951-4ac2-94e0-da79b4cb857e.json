@@ -1827,19 +1827,19 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "9ca8791e-6822-4f02-8cc5-2988404e5afe",
+						"id": "56e9231e-8626-408c-85e9-2d1f2f5e2f65",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
 						"exec": [
-							"pm.variables.set"
+							"pm.variables.set(\"unau\")"
 						]
 					}
 				},
 				{
 					"listen": "test",
 					"script": {
-						"id": "062419b6-5c76-42a4-8929-e54ea3abc9d3",
+						"id": "7c4ab1a3-7256-42c5-897e-5541f75aeecc",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
