@@ -1436,7 +1436,7 @@
 									"    pm.response.to.have.status(400);",
 									"});",
 									"",
-									"pm.test(\"Response body contains error message\", function () {",
+									"pm.test(\"Response body contains error message for invalid email address\", function () {",
 									"    pm.expect(pm.response.json().message).to.include(\"Email is invalid\");",
 									"});"
 								],
