@@ -1624,9 +1624,7 @@
 								"id": "fd66290c-7776-4fd6-bf0f-185c4be9988e",
 								"exec": [
 									"const lastName = pm.variables.get(\"lastName\");",
-									"pm.variables.set(\"longLastName\", lastName.repeat(4));",
-									"",
-									"console.log(pm.variables.get(\"longLastName\"));"
+									"pm.variables.set(\"longLastName\", lastName.repeat(4));"
 								],
 								"type": "text/javascript",
 								"packages": {},
@@ -1653,7 +1651,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"dskfhjkhkjgsdkjlkdjf lksdjflksdjf klsfjl. sdfklsdkfjl ksjflk jls\",\n    \"birthdate\": \"{{birthDate}}\",\n    \"email\": \"{{emailAddress}}\",\n    \"phone\": \"{{phone}}\",\n    \"street1\": \"{{street}}\",\n    \"street2\": \"{{house}}\",\n    \"city\": \"{{city}}\",\n    \"stateProvince\": \"{{province}}\",\n    \"postalCode\": \"{{postalCode}}\",\n    \"country\": \"{{country}}\"\n}",
+							"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"{{longLastName}}\",\n    \"birthdate\": \"{{birthDate}}\",\n    \"email\": \"{{emailAddress}}\",\n    \"phone\": \"{{phone}}\",\n    \"street1\": \"{{street}}\",\n    \"street2\": \"{{house}}\",\n    \"city\": \"{{city}}\",\n    \"stateProvince\": \"{{province}}\",\n    \"postalCode\": \"{{postalCode}}\",\n    \"country\": \"{{country}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
