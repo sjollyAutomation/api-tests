@@ -1833,7 +1833,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "243527d2-db46-4266-9d5e-f97d9acd96be",
+						"id": "1b31e3d9-9014-425c-9f2c-6958987c798c",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
@@ -1845,12 +1845,12 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "3552722f-55c8-46b4-ab21-9b152a795b20",
+						"id": "cddd8cd4-4e5f-4fcc-b86d-bf1b98676342",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
 						"exec": [
-							"pm.variables.unset(\"unauthenticatedMessage\");"
+							""
 						]
 					}
 				}
