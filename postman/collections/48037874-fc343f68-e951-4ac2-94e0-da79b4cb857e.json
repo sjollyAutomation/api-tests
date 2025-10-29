@@ -1632,7 +1632,9 @@
 									"    ",
 									"    pm.expect(jsonData.errors.lastName.message).to.include(errorMessage);",
 									"    pm.expect(jsonData.message).to.include(errorMessage);",
-									"});"
+									"});",
+									"",
+									"pm.variables.unset(\"longLastName\");"
 								],
 								"type": "text/javascript",
 								"packages": {},
