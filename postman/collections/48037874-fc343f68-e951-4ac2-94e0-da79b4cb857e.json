@@ -1701,6 +1701,7 @@
 									"});",
 									"",
 									"pm.test(\"Response body contains error message for unauthentication\", function () {",
+									"    console.log(pm.response.json().error);",
 									"    pm.expect(pm.response.json().error).to.eql(pm.variables.get(\"unauthenticatedMessage\"));",
 									"});"
 								],
