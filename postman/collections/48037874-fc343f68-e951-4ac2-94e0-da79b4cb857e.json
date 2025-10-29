@@ -1827,7 +1827,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "905f77b6-c35b-4d9b-83f2-0dc45dbe6dee",
+						"id": "12fdea74-f4a5-455f-ad72-107be3f373fa",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
@@ -1839,12 +1839,12 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "af572a96-8d59-4e67-ba73-560516c57df3",
+						"id": "043806d2-4afe-488e-9f8f-4d50ca26daae",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
 						"exec": [
-							"p"
+							"pm.variables.unset(\"unauthenticatedMes\")"
 						]
 					}
 				}
