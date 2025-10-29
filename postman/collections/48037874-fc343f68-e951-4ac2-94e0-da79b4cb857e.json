@@ -1701,8 +1701,6 @@
 									"});",
 									"",
 									"pm.test(\"Response body contains error message for unauthentication\", function () {",
-									"    console.log(pm.response.json().error);",
-									"    console.log(pm.variables.get(\"unauthenticatedMessage\"));",
 									"    pm.expect(pm.response.json().error).to.eql(pm.variables.get(\"unauthenticatedMessage\"));",
 									"});"
 								],
@@ -1745,8 +1743,6 @@
 									"});",
 									"",
 									"pm.test(\"Response body contains error message for unauthentication\", function () {",
-									"    console.log(pm.response.json().error);",
-									"    console.log(pm.variables.get(\"unauthenticatedMessage\"));",
 									"    pm.expect(pm.response.json().error).to.eql(pm.variables.get(\"unauthenticatedMessage\"));",
 									"});"
 								],
