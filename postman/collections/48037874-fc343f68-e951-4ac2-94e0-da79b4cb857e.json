@@ -1611,6 +1611,10 @@
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {",
 									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Response body contains error message for long lastname field\", function () {",
+									"    pm.expect(pm.response.json().message).to.include(\"`lastName` (`pm.variables.get('longLastName')`) is longer than the maximum allowed length (20).\");",
 									"});"
 								],
 								"type": "text/javascript",
