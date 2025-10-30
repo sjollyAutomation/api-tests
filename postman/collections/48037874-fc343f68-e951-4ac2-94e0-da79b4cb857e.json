@@ -1176,7 +1176,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "e54566c8-d532-4322-8b82-caf10afdb30e",
+						"id": "c8016e83-82b5-4b8a-9e6e-159bfcda1169",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
@@ -1188,12 +1188,14 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b27c83de-3378-4e7c-affa-b635ed6e07cf",
+						"id": "68b655b1-8692-415f-8c69-f9f720314119",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
 						"exec": [
-							""
+							"pm.test(\"Successful basic endpoint requests\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});"
 						]
 					}
 				}
