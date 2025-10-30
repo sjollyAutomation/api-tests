@@ -216,7 +216,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "b374bbc7-0b5e-47b0-9bf6-8dcbd3049dc6",
+						"id": "eb8b8918-6571-42f3-838b-5461441df9aa",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
@@ -228,12 +228,12 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "174314cd-4b57-45d8-b79d-378cfe37a5e1",
+						"id": "38b1dd27-d6e6-43af-971d-68cf7630ce82",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
 						"exec": [
-							"pm.test(\"Successful request\", function () {",
+							"pm.test(\"Successful setup requests\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
 							"});"
 						]
