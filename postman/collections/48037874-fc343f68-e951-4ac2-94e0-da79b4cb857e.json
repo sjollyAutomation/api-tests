@@ -216,7 +216,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "9ba5005b-b056-4058-bd14-755a114bd842",
+						"id": "2f03a1e7-e8f8-4a33-866f-5ecfb4838fa3",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
@@ -228,7 +228,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b604e62c-0a5a-4ad1-a775-fb8695425404",
+						"id": "c5f50e09-dfa4-43b5-947f-91bce0c6c23e",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
@@ -1045,7 +1045,10 @@
 											"",
 											"pm.test(\"Response body confirms contact deleted\", function () {",
 											"    pm.expect(pm.response.text()).to.eql(pm.variables.get(\"contactDeletedMessage\"));",
-											"})"
+											"})",
+											"",
+											"pm.environment.set(\"invalidContactId\", pm.environment.get(\"contactId\"));",
+											"pm.environment.unset(\"contactId\");"
 										],
 										"type": "text/javascript",
 										"packages": {},
@@ -1152,7 +1155,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "c8016e83-82b5-4b8a-9e6e-159bfcda1169",
+						"id": "ab6e8c72-9cde-4d6e-afb0-bce5071309ff",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
@@ -1164,7 +1167,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "68b655b1-8692-415f-8c69-f9f720314119",
+						"id": "e76866e6-edd1-4b35-9467-7c729ceadca7",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
@@ -1802,7 +1805,10 @@
 									"",
 									"pm.test(\"Response body confirms contact deleted\", function () {",
 									"    pm.expect(pm.response.text()).to.eql(pm.variables.get(\"contactDeletedMessage\"));",
-									"})"
+									"})",
+									"",
+									"pm.environment.set(\"invalidContactId\", pm.environment.get(\"contactId\"));",
+									"pm.environment.unset(\"contactId\");"
 								],
 								"type": "text/javascript",
 								"packages": {},
@@ -1812,8 +1818,13 @@
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "e0a915ff-dee9-460a-ba77-4180155385c2",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
 								"packages": {},
-								"type": "text/javascript"
+								"requests": {}
 							}
 						}
 					],
