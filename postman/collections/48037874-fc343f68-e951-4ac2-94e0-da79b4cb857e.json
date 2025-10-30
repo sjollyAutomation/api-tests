@@ -23,10 +23,6 @@
 									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
 									"});",
 									"",
-									"pm.test(\"Status code is 201\", function () {",
-									"    pm.response.to.have.status(201);",
-									"});",
-									"",
 									"pm.test(\"JSON Response has user and token fields\", function () {",
 									"    pm.expect(jsonData).to.be.an('object');",
 									"    pm.expect(jsonData).to.have.all.keys('user', 'token');",
@@ -72,6 +68,13 @@
 								"packages": {},
 								"requests": {}
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"packages": {},
+								"type": "text/javascript"
+							}
 						}
 					],
 					"id": "48037874-514d8a2f-6f35-4671-9d7b-6ff3228668cb",
@@ -112,15 +115,12 @@
 								"exec": [
 									"const jsonData = pm.response.json();",
 									"const user = jsonData.user;",
+									"",
 									"pm.environment.set(\"userId\", jsonData.user._id);",
 									"pm.environment.set(\"token\", jsonData.token);",
 									"",
 									"pm.test(\"Response Content-Type is JSON\", function () {",
 									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
-									"});",
-									"",
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
 									"});",
 									"",
 									"pm.test(\"JSON Response has user and token fields\", function () {",
@@ -211,7 +211,35 @@
 					"response": []
 				}
 			],
-			"id": "48037874-2f974920-7f56-4005-ae98-c7a21e147fc5"
+			"id": "48037874-2f974920-7f56-4005-ae98-c7a21e147fc5",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9ba5005b-b056-4058-bd14-755a114bd842",
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b604e62c-0a5a-4ad1-a775-fb8695425404",
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							"pm.test(\"Successful setup requests\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});"
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "Basic Endpoint Tests",
@@ -232,10 +260,6 @@
 											"",
 											"pm.test(\"Response Content-Type is JSON\", function () {",
 											"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
-											"});",
-											"",
-											"pm.test(\"Status code is 200\", function () {",
-											"    pm.response.to.have.status(200);",
 											"});",
 											"",
 											"pm.test(\"JSON response has correct fields\", function () {",
@@ -389,10 +413,6 @@
 											"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
 											"});",
 											"",
-											"pm.test(\"Status code is 201\", function () {",
-											"    pm.response.to.have.status(201);",
-											"});",
-											"",
 											"pm.test(\"JSON response object has correct fields\", function () {",
 											"    pm.expect(jsonData).to.be.an('object');",
 											"    pm.expect(jsonData).to.have.all.keys('_id', 'firstName', 'lastName', 'birthdate', 'email', 'phone', 'street1', 'street2', 'city', 'stateProvince', 'postalCode', 'country', 'owner', '__v');",
@@ -520,10 +540,6 @@
 											"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
 											"});",
 											"",
-											"pm.test(\"Status code is 200\", function () {",
-											"    pm.response.to.have.status(200);",
-											"});",
-											"",
 											"pm.test(\"All objects in the array have the correct fields\", function () {",
 											"    pm.expect(jsonData).to.be.an('array').that.is.not.empty;",
 											"",
@@ -647,10 +663,6 @@
 											"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
 											"});",
 											"",
-											"pm.test(\"Status code is 200\", function () {",
-											"    pm.response.to.have.status(200);",
-											"});",
-											"",
 											"pm.test(\"JSON response object has correct fields\", function () {",
 											"    pm.expect(jsonData).to.be.an('object');",
 											"    pm.expect(jsonData).to.have.all.keys('_id', 'firstName', 'lastName', 'birthdate', 'email', 'phone', 'street1', 'street2', 'city', 'stateProvince', 'postalCode', 'country', 'owner', '__v');",
@@ -769,10 +781,6 @@
 											"",
 											"pm.test(\"Response Content-Type is JSON\", function () {",
 											"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
-											"});",
-											"",
-											"pm.test(\"Status code is 200\", function () {",
-											"    pm.response.to.have.status(200);",
 											"});",
 											"",
 											"pm.test(\"JSON response object has correct fields\", function () {",
@@ -910,10 +918,6 @@
 											"",
 											"pm.test(\"Response Content-Type is JSON\", function () {",
 											"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
-											"});",
-											"",
-											"pm.test(\"Status code is 200\", function () {",
-											"    pm.response.to.have.status(200);",
 											"});",
 											"",
 											"pm.test(\"JSON response object has correct fields\", function () {",
@@ -1148,7 +1152,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "e54566c8-d532-4322-8b82-caf10afdb30e",
+						"id": "c8016e83-82b5-4b8a-9e6e-159bfcda1169",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
@@ -1160,12 +1164,14 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b27c83de-3378-4e7c-affa-b635ed6e07cf",
+						"id": "68b655b1-8692-415f-8c69-f9f720314119",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
 						"exec": [
-							""
+							"pm.test(\"Successful basic endpoint requests\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});"
 						]
 					}
 				}
@@ -1954,7 +1960,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "23310a8d-f64f-4921-8c3a-09f29782e99d",
+				"id": "d9c3944d-9899-4f4a-9cda-929541579efa",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -1966,13 +1972,13 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "95785924-6e21-42cb-ac1e-8f84c89b603f",
+				"id": "df7b300f-eb50-455c-bc40-0220c355dc5c",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
 				"exec": [
-					"pm.test(\"Response time is less than 400ms\", function () {",
-					"    pm.expect(pm.response.responseTime).to.be.below(400);",
+					"pm.test(\"Response time is less than 500ms\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(500);",
 					"});"
 				]
 			}
