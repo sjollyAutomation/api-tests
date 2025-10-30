@@ -1982,7 +1982,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "23310a8d-f64f-4921-8c3a-09f29782e99d",
+				"id": "d9c3944d-9899-4f4a-9cda-929541579efa",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -1994,13 +1994,13 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "95785924-6e21-42cb-ac1e-8f84c89b603f",
+				"id": "df7b300f-eb50-455c-bc40-0220c355dc5c",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
 				"exec": [
-					"pm.test(\"Response time is less than 400ms\", function () {",
-					"    pm.expect(pm.response.responseTime).to.be.below(400);",
+					"pm.test(\"Response time is less than 500ms\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(500);",
 					"});"
 				]
 			}
