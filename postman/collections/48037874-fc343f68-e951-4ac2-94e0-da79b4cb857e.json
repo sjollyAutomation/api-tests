@@ -211,7 +211,35 @@
 					"response": []
 				}
 			],
-			"id": "48037874-2f974920-7f56-4005-ae98-c7a21e147fc5"
+			"id": "48037874-2f974920-7f56-4005-ae98-c7a21e147fc5",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fa5471e8-d154-4472-80b9-82995a8f02a8",
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ed0853d5-aa85-44bd-81cc-f2842bf7cfbe",
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 202]);",
+							"});"
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "Basic Endpoint Tests",
