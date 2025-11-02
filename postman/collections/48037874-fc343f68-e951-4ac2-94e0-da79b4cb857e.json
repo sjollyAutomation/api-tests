@@ -1115,7 +1115,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "4f8a60c4-71b9-436a-a127-be9b86d74f59",
+								"id": "3e7e6e60-7a8b-4808-b76c-777d29af46e3",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
@@ -1176,10 +1176,10 @@
 									"        \"stateProvince\": {",
 									"            \"type\": \"string\"",
 									"        },",
-									"        \"stateProvince\": {",
+									"        \"postalCode\": {",
 									"            \"type\": \"string\"",
 									"        },",
-									"        \"stateProvince\": {",
+									"        \"country\": {",
 									"            \"type\": \"string\"",
 									"        },",
 									"        \"__v\": {",
@@ -1200,7 +1200,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "71c446eb-772d-481d-b82d-0a832676c9dc",
+								"id": "f2921c94-bb0c-4f4b-a3d0-1e658f478d8c",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
