@@ -1971,7 +1971,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "e18ac698-69a0-41fa-9dc1-a96d3f088213",
+				"id": "5480a8c2-411a-42c2-9a77-b2b6dfb32868",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2015,18 +2015,14 @@
 					"    \"user\",",
 					"    \"token\"",
 					"  ]",
-					"};",
-					"",
-					"pm.test(\"Response body matches schema\", function () {",
-					"    pm.expect(jsonData).to.be.jsonSchema(schema);",
-					"})"
+					"};"
 				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
-				"id": "546ee4e6-04b9-4d26-aac6-1c6bdebfcf95",
+				"id": "585ec5b5-2a6e-4a6a-b143-31cc994ac301",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
