@@ -1115,7 +1115,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "2808ba02-5600-4124-b304-55485d4dd625",
+								"id": "59769201-2a81-431d-be15-c584b11dba8e",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
@@ -1193,7 +1193,7 @@
 									"        \"_id\",",
 									"        \"firstName\",",
 									"        \"lastName\",",
-									"        \"email\",",
+									"        \"owner\",",
 									"        \"__v\"",
 									"    ]",
 									"};"
@@ -1203,7 +1203,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "2e4429e8-ac78-45c0-b682-23a1a424f511",
+								"id": "1ceb3a0a-fce8-4318-8486-6b43b7386af0",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
