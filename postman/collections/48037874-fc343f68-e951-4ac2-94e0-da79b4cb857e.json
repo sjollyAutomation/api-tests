@@ -1971,7 +1971,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "5480a8c2-411a-42c2-9a77-b2b6dfb32868",
+				"id": "9c812ccc-698b-4bf6-a52e-acc44de26c23",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2015,14 +2015,17 @@
 					"    \"user\",",
 					"    \"token\"",
 					"  ]",
-					"};"
+					"};",
+					"",
+					"pm.collectionVariables.set(\"userSchema\", JSON.stringify(userSchema));",
+					"pm.collectionVariables.set(\"schema\", JSON.stringify(schema));"
 				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
-				"id": "585ec5b5-2a6e-4a6a-b143-31cc994ac301",
+				"id": "08fae526-4f7f-410c-a5ec-91743ea7c4c0",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
