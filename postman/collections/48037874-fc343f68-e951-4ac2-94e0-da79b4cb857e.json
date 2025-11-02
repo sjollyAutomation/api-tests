@@ -1971,7 +1971,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "6a03d749-f5b0-4a0c-99e0-621670e2001d",
+				"id": "c99e7982-dd8b-4b02-9d55-111333870737",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -1994,7 +1994,7 @@
 					"    \"__v\": {",
 					"        \"type\": \"integer\"",
 					"    }",
-					"    };",
+					"};",
 					"const schema = {",
 					"  \"type\": \"object\",",
 					"  \"properties\": {",
@@ -2026,7 +2026,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "7366e219-1890-4f6e-ae5d-ea15930b5cf4",
+				"id": "2a977900-e68b-4f9e-a823-79e86fa44799",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
