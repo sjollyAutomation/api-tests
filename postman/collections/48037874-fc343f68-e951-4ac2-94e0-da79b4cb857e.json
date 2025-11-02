@@ -1115,7 +1115,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "be75fa36-578b-4049-bb2b-37f331d9ff6c",
+								"id": "5111ea2a-bbb5-4d0b-b3b8-d1f145d1b1ea",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
@@ -1161,10 +1161,10 @@
 									"        \"email\": {",
 									"            \"type\": \"string\"",
 									"        },",
-									"        \"email\": {",
+									"        \"phone\": {",
 									"            \"type\": \"string\"",
 									"        },",
-									"        \"email\": {",
+									"        \"street1\": {",
 									"            \"type\": \"string\"",
 									"        },",
 									"        \"email\": {",
@@ -1194,7 +1194,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "746ae27d-eaf1-40e6-b44a-59d8408fab6d",
+								"id": "da2b8301-d01b-4436-bdbd-c161d1f76673",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
