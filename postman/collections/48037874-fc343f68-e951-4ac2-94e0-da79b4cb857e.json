@@ -1115,7 +1115,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "212cfd2d-faef-4c0d-92b5-3209316f9063",
+								"id": "2ab91f60-3e6f-47b9-8fac-067e963e64ff",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
@@ -1155,6 +1155,9 @@
 									"        \"lastName\": {",
 									"            \"type\": \"string\"",
 									"        },",
+									"        \"birthdate\": {",
+									"            \"type\": \"string\"",
+									"        },",
 									"        \"email\": {",
 									"            \"type\": \"string\"",
 									"        },",
@@ -1176,7 +1179,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c8f68a5b-beec-4d90-9b2f-4a34d0d90818",
+								"id": "e9a9c474-fe35-444d-8776-86d9a3cade4e",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
