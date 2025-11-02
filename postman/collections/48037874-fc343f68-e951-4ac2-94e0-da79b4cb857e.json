@@ -1115,7 +1115,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "fb4fb8ad-67e8-49ef-95e3-dfdc40094e71",
+								"id": "212cfd2d-faef-4c0d-92b5-3209316f9063",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
@@ -1143,7 +1143,7 @@
 									"    });",
 									"}",
 									"",
-									"const contaSchema = {",
+									"const contactSchema = {",
 									"    \"type\": \"object\",",
 									"    \"properties\": {",
 									"        \"_id\": {",
@@ -1176,7 +1176,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "47d84996-d8b4-4060-9d6a-b9eb22c48930",
+								"id": "c8f68a5b-beec-4d90-9b2f-4a34d0d90818",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
