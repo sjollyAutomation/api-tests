@@ -1971,7 +1971,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "c99e7982-dd8b-4b02-9d55-111333870737",
+				"id": "9a78d8fb-45fd-40a4-9dcd-a3e3ca6578f3",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -1998,7 +1998,7 @@
 					"const schema = {",
 					"  \"type\": \"object\",",
 					"  \"properties\": {",
-					"    \"user\": ",
+					"    \"user\": userSchema,",
 					"      \"required\": [",
 					"        \"_id\",",
 					"        \"firstName\",",
@@ -2026,7 +2026,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "2a977900-e68b-4f9e-a823-79e86fa44799",
+				"id": "a394a52f-8915-4812-b276-5e3562a59788",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
