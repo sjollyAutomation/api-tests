@@ -62,7 +62,11 @@
 									"",
 									"pm.test(\"Token is a valid JWT format\", function () {",
 									"    pm.expect(jsonData.token).to.match(/^ey[A-Za-z0-9\\-_]+\\.[A-Za-z0-9\\-_]+\\.[A-Za-z0-9\\-_]+$/);",
-									"});"
+									"});",
+									"",
+									"pm.test(\"Response body matches schema\", function () {",
+									"    pm.expect(jsonData).to.be.jsonSchema(pm.collectionVariables.get(\"schema\"));",
+									"})"
 								],
 								"type": "text/javascript",
 								"packages": {},
@@ -72,8 +76,13 @@
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "bd7e9b52-fb4f-403b-af39-d2351f420bf2",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
 								"packages": {},
-								"type": "text/javascript"
+								"requests": {}
 							}
 						}
 					],
@@ -2035,6 +2044,16 @@
 					"});"
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"key": "userSchema",
+			"value": ""
+		},
+		{
+			"key": "schema",
+			"value": ""
 		}
 	]
 }
