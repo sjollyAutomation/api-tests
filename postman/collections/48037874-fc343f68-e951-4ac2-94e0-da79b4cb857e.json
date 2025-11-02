@@ -1115,7 +1115,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "eff8f1bc-7c49-4d37-97bf-aeb16ea80340",
+								"id": "0a4124c2-b452-4832-adfa-42a9dbc66539",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
@@ -1141,14 +1141,42 @@
 									"            console.error(\"Login request failed\", err);",
 									"        }",
 									"    });",
-									"}"
+									"}",
+									"",
+									"const userSchema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\": {",
+									"        \"_id\": {",
+									"            \"type\": \"string\"",
+									"        },",
+									"        \"firstName\": {",
+									"            \"type\": \"string\"",
+									"        },",
+									"        \"lastName\": {",
+									"            \"type\": \"string\"",
+									"        },",
+									"        \"email\": {",
+									"            \"type\": \"string\"",
+									"        },",
+									"        \"__v\": {",
+									"            \"type\": \"integer\"",
+									"        },",
+									"    },",
+									"    \"required\": [",
+									"        \"_id\",",
+									"        \"firstName\",",
+									"        \"lastName\",",
+									"        \"email\",",
+									"        \"__v\"",
+									"    ]",
+									"};"
 								]
 							}
 						},
 						{
 							"listen": "test",
 							"script": {
-								"id": "921bdb48-433c-4ca3-8c01-0873cb54cd27",
+								"id": "a0a89c24-6517-4543-9421-ac843e6cc7ad",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
