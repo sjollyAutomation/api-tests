@@ -1120,7 +1120,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "764de153-7803-4a0d-9b10-5152917db977",
+								"id": "ef3c5160-15d5-4a3a-9449-76f16feb88f5",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
@@ -1209,14 +1209,14 @@
 									"};",
 									"",
 									"pm.variables.set(\"contactSchema\", JSON.stringify(contactSchema));",
-									"pm.variables.set(\"\")"
+									"pm.variables.set(\"contactListSchema\", JSON.stringify(contactListSchema));"
 								]
 							}
 						},
 						{
 							"listen": "test",
 							"script": {
-								"id": "7f991125-60a3-4d74-85f7-2affa6eb7230",
+								"id": "5a17d8d2-e933-4a21-bd94-74196e7392be",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
