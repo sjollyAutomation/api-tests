@@ -567,7 +567,7 @@
 											"});",
 											"",
 											"pm.test(\"All objects in the array have the required fields\", function () {",
-											"    pm.expect(jsonData).to.be.an('array').that.is.not.empty;",
+											"    pm.expect(jsonData, \"json response should be an array\").to.be.an('array').that.is.not.empty;",
 											"",
 											"    const requiredKeys = [",
 											"        '_id', 'firstName', 'lastName', 'owner', '__v'",
