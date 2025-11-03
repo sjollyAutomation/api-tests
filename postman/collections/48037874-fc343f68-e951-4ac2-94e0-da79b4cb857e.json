@@ -1120,7 +1120,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "72e08393-823a-4cd3-9c94-168ff8e3927c",
+								"id": "f48b9449-8818-4ee8-a481-dd280ebc0e4f",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
@@ -1203,7 +1203,7 @@
 									"    ]",
 									"};",
 									"",
-									"const ",
+									"const contactListSchema = ",
 									"",
 									"pm.variables.set(\"contactSchema\", JSON.stringify(contactSchema));"
 								]
@@ -1212,7 +1212,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4c1aa29a-ec3e-4b0c-8a92-9bfa7ec54e50",
+								"id": "242836dc-544d-45dc-b903-d897cee997f3",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
