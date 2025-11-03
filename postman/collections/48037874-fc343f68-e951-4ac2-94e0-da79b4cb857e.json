@@ -934,8 +934,8 @@
 										"id": "bb1979ef-4f4c-486d-ac7c-1b7f57aa4e02",
 										"exec": [
 											"var jsonData = pm.response.json();",
-											"const requiredFields = pm.variables.get(\"requiredFields\");",
-											"const optionalFields = pm.variables.get(\"optionalFields\");",
+											"const requiredFields = pm.collectionVariables.get(\"requiredFields\");",
+											"const optionalFields = pm.collectionVariables.get(\"optionalFields\");",
 											"const contactSchema = JSON.parse(pm.variables.get(\"contactSchema\"));",
 											"",
 											"pm.test(\"Response Content-Type is JSON\", function () {",
