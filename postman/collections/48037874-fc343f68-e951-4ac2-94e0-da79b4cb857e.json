@@ -2059,7 +2059,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "51ec6bae-468a-4ff5-b8f5-47759329f01f",
+				"id": "8c14fce4-fd9b-422f-8923-0a583e64b3df",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2113,11 +2113,22 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "83e1b9ee-3af9-43e8-b22d-94ce52d530a2",
+				"id": "66e52c64-bec4-4085-a406-b940dea8d352",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
 				"exec": [
+					"const requiredFields = [",
+					"        '_id', 'firstName', 'lastName', 'owner', '__v'",
+					"    ];",
+					"",
+					"const optionalFields = ['birthdate', 'email', 'phone', 'street1', 'street2', 'city', 'stateProvince', 'postalCode', 'country'];",
+					"",
+					"",
+					"pm.variables.set(\"requiredFields\", requiredFields);",
+					"pm.variables.set(\"optionalFields\", optionalFields);",
+					"pm.variables.set(\"contactDeletedMessage\", \"Contact deleted\");",
+					"",
 					"pm.test(\"Response time is less than 500ms\", function () {",
 					"    pm.expect(pm.response.responseTime).to.be.below(500);",
 					"});"
