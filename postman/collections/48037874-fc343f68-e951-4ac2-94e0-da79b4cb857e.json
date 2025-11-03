@@ -422,8 +422,8 @@
 										"exec": [
 											"const jsonData = pm.response.json();",
 											"pm.environment.set(\"contactId\", jsonData._id);",
-											"const requiredFields = pm.variables.get(\"requiredFields\");",
-											"const optionalFields = pm.variables.get(\"optionalFields\");",
+											"const requiredFields = pm.collectionVariables.get(\"requiredFields\");",
+											"const optionalFields = pm.collectionVariables.get(\"optionalFields\");",
 											"const contactSchema = JSON.parse(pm.variables.get(\"contactSchema\"));",
 											"",
 											"pm.test(\"Response Content-Type is JSON\", function () {",
@@ -669,8 +669,8 @@
 										"id": "efec4179-e93d-485e-b457-716d63741d4f",
 										"exec": [
 											"var jsonData = pm.response.json();",
-											"const requiredFields = pm.variables.get(\"requiredFields\");",
-											"const optionalFields = pm.variables.get(\"optionalFields\");",
+											"const requiredFields = pm.collectionVariables.get(\"requiredFields\");",
+											"const optionalFields = pm.collectionVariables.get(\"optionalFields\");",
 											"const contactSchema = JSON.parse(pm.variables.get(\"contactSchema\"));",
 											"",
 											"pm.test(\"Response Content-Type is JSON\", function () {",
@@ -2219,6 +2219,18 @@
 		},
 		{
 			"key": "schema",
+			"value": ""
+		},
+		{
+			"key": "requiredFields",
+			"value": ""
+		},
+		{
+			"key": "optionalFields",
+			"value": ""
+		},
+		{
+			"key": "contactDeletedMessage",
 			"value": ""
 		}
 	]
