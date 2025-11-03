@@ -490,7 +490,7 @@
 											"});",
 											"",
 											"pm.test(\"JSON response ownership field matches environment value\", function () {",
-											"    pm.expect(jsonData.owner, \"Owner to match environment value\"r).to.eql(pm.environment.get(\"userId\"));",
+											"    pm.expect(jsonData.owner, \"Owner to match environment value\").to.eql(pm.environment.get(\"userId\"));",
 											"});",
 											"",
 											"pm.test(\"contactId is saved to environment\", function () {",
