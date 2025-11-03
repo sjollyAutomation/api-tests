@@ -1069,7 +1069,7 @@
 											"});",
 											"",
 											"pm.test(\"Response body confirms contact deleted\", function () {",
-											"    pm.expect(pm.response.text()).to.eql(pm.variables.get(\"contactDeletedMessage\"));",
+											"    pm.expect(pm.response.text()).to.eql(pm.collectionVariables.get(\"contactDeletedMessage\"));",
 											"})",
 											"",
 											"pm.environment.set(\"invalidContactId\", pm.environment.get(\"contactId\"));",
