@@ -1120,7 +1120,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "59769201-2a81-431d-be15-c584b11dba8e",
+								"id": "eefc1638-a626-498a-89d7-34a0bd0090e9",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
@@ -1201,14 +1201,16 @@
 									"        \"owner\",",
 									"        \"__v\"",
 									"    ]",
-									"};"
+									"};",
+									"",
+									"pm.variables.set(\"contactSchema\", JSON.stringify(contactSchema));"
 								]
 							}
 						},
 						{
 							"listen": "test",
 							"script": {
-								"id": "1ceb3a0a-fce8-4318-8486-6b43b7386af0",
+								"id": "669948a3-f9e3-4a8c-853c-b6e05f41387a",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
