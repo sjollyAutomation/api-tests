@@ -1241,19 +1241,25 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ab6e8c72-9cde-4d6e-afb0-bce5071309ff",
+						"id": "9006f1d1-3614-4ea9-bd3f-5ae2545700b3",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
 						"exec": [
-							"pm.variables.set(\"contactDeletedMessage\", \"Contact deleted\");"
+							"pm.variables.set(\"contactDeletedMessage\", \"Contact deleted\");",
+							"",
+							"const requiredKeys = [",
+							"        '_id', 'firstName', 'lastName', 'owner', '__v'",
+							"    ];",
+							"",
+							"const optionalFields = []"
 						]
 					}
 				},
 				{
 					"listen": "test",
 					"script": {
-						"id": "e76866e6-edd1-4b35-9467-7c729ceadca7",
+						"id": "9811e5cf-3b52-4fe7-bb05-53d735bb8076",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
