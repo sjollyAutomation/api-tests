@@ -1241,25 +1241,27 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "9006f1d1-3614-4ea9-bd3f-5ae2545700b3",
+						"id": "b365fb7d-3709-475e-85c6-c23c6080361b",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
 						"exec": [
-							"pm.variables.set(\"contactDeletedMessage\", \"Contact deleted\");",
-							"",
 							"const requiredKeys = [",
 							"        '_id', 'firstName', 'lastName', 'owner', '__v'",
 							"    ];",
 							"",
-							"const optionalFields = []"
+							"const optionalFields = ['birthdate', 'email', 'phone', 'street1', 'street2', 'city', 'stateProvince', 'postalCode', 'country'];",
+							"",
+							"",
+							"",
+							"pm.variables.set(\"contactDeletedMessage\", \"Contact deleted\");"
 						]
 					}
 				},
 				{
 					"listen": "test",
 					"script": {
-						"id": "9811e5cf-3b52-4fe7-bb05-53d735bb8076",
+						"id": "f9dec880-e809-4105-9a2d-07364c3c3d05",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
