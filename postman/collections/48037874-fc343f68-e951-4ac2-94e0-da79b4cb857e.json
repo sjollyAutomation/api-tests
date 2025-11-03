@@ -629,11 +629,11 @@
 											"});",
 											"",
 											"pm.test(\"JSON response ownership field matches environment value\", function () {",
-											"    pm.expect(lastItem.owner).to.eql(pm.environment.get(\"userId\"));",
+											"    pm.expect(lastItem.owner, \"Owner to match the environment variable\").to.eql(pm.environment.get(\"userId\"));",
 											"});",
 											"",
 											"pm.test(\"Response body matches schema\", function () {",
-											"    pm.expect(jsonData).to.be.jsonSchema(contactListSchema);",
+											"    pm.expect(jsonData, \"json response to match schema\").to.be.jsonSchema(contactListSchema);",
 											"})"
 										],
 										"type": "text/javascript",
