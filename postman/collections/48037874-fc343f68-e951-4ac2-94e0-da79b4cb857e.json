@@ -2133,7 +2133,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "8e2cdfb3-c0cb-4c1e-b44c-897c3ab588ea",
+				"id": "063b7c19-7c1b-45f7-8c93-22108acdb165",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2180,14 +2180,27 @@
 					"};",
 					"",
 					"pm.collectionVariables.set(\"userSchema\", JSON.stringify(userSchema));",
-					"pm.collectionVariables.set(\"schema\", JSON.stringify(schema));"
+					"pm.collectionVariables.set(\"schema\", JSON.stringify(schema));",
+					"",
+					"const requiredFields = [",
+					"        '_id', 'firstName', 'lastName', 'owner', '__v'",
+					"    ];",
+					"",
+					"const optionalFields = ['birthdate', 'email', 'phone', 'street1', 'street2', 'city', 'stateProvince', 'postalCode', 'country'];",
+					"",
+					"",
+					"pm.collectionVariables.set(\"requiredFields\", requiredFields);",
+					"pm.collectionVariables.set(\"optionalFields\", optionalFields);",
+					"pm.collectionVariables.set(\"contactDeletedMessage\", \"Contact deleted\");",
+					"",
+					""
 				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
-				"id": "463d618f-dbcd-4012-80c0-fd7d0fb6b9b7",
+				"id": "a350dd63-db88-47b4-a187-728b02391765",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
