@@ -1243,28 +1243,19 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "3a322cec-ee91-4ea2-87e7-fce4b9b1f47e",
+						"id": "bf0fed7a-48f4-4ca2-87fe-05dd96e13884",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
 						"exec": [
-							"const requiredFields = [",
-							"        '_id', 'firstName', 'lastName', 'owner', '__v'",
-							"    ];",
-							"",
-							"const optionalFields = ['birthdate', 'email', 'phone', 'street1', 'street2', 'city', 'stateProvince', 'postalCode', 'country'];",
-							"",
-							"",
-							"pm.variables.set(\"requiredFields\", requiredFields);",
-							"pm.variables.set(\"optionalFields\", optionalFields);",
-							"pm.variables.set(\"contactDeletedMessage\", \"Contact deleted\");"
+							""
 						]
 					}
 				},
 				{
 					"listen": "test",
 					"script": {
-						"id": "1d8156df-0839-4ebf-b02b-f39df67c5c31",
+						"id": "a8febd3e-6648-4010-bc83-685bf2756705",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
