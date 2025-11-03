@@ -1241,7 +1241,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "b365fb7d-3709-475e-85c6-c23c6080361b",
+						"id": "bcb4c4f5-0d41-4a19-b6d0-07bbfca6f2b2",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
@@ -1253,7 +1253,7 @@
 							"const optionalFields = ['birthdate', 'email', 'phone', 'street1', 'street2', 'city', 'stateProvince', 'postalCode', 'country'];",
 							"",
 							"",
-							"",
+							"pm.variables.set(\"requiredFields\")",
 							"pm.variables.set(\"contactDeletedMessage\", \"Contact deleted\");"
 						]
 					}
@@ -1261,7 +1261,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f9dec880-e809-4105-9a2d-07364c3c3d05",
+						"id": "e47dd078-ec62-4ead-b4b3-1613e00f59e6",
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {},
