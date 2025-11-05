@@ -49,8 +49,8 @@
 									"});",
 									"",
 									"pm.test(\"User name fields have correct values\", function () {",
-									"    pm.expect(user.firstName, \"user first name to have the correct environment value\").to.eql(userFirstName);",
-									"    pm.expect(user.lastName, \"user last name to have the correct environment value\").to.eql(userLastName);",
+									"    pm.expect(user.firstName, \"user first name to have the correct environment value\").to.eql(pm.collectionVariables.get(\"userFirstName\"));",
+									"    pm.expect(user.lastName, \"user last name to have the correct environment value\").to.eql(m.collectionVariables.get(\"userLastName\"));",
 									"});",
 									"",
 									"pm.test(\"User email field has correct values\", function () {",
@@ -79,8 +79,8 @@
 							"script": {
 								"id": "bd7e9b52-fb4f-403b-af39-d2351f420bf2",
 								"exec": [
-									"const userFirstName = pm.collectionVariables.get(\"userFirstName\");",
-									"const userLastName = pm.collectionVariables.get(\"userLastName\");",
+									"//const userFirstName = pm.collectionVariables.get(\"userFirstName\");",
+									"//const userLastName = pm.collectionVariables.get(\"userLastName\");",
 									"pm.collectionVariables.set(\"password\", pm.variables.replaceIn(\"{{$randomPassword}}\"));"
 								],
 								"type": "text/javascript",
