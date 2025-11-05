@@ -2000,7 +2000,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "941d5a30-0b7b-46e8-bba1-53ef15326d79",
+				"id": "211c98d1-042d-495d-8543-4760c60fd9c0",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2128,8 +2128,8 @@
 					"    pm.collectionVariables.set(\"firstName\", pm.variables.replaceIn(\"{{$randomFirstName}}\"));",
 					"}",
 					"",
-					"if (!pm.collectionVariables.get(\"last\")) {",
-					"    pm.collectionVariables.set(\"firstName\", pm.variables.replaceIn(\"{{$randomFirstName}}\"));",
+					"if (!pm.collectionVariables.get(\"lastName\")) {",
+					"    pm.collectionVariables.set(\"lastName\", pm.variables.replaceIn(\"{{$randomLastName}}\"));",
 					"}",
 					""
 				]
@@ -2138,7 +2138,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "9c3a44bd-3de8-4be4-8b0a-3c03813ad9cf",
+				"id": "676d9fb8-8fa6-4723-ab6f-97190f0cb49c",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
