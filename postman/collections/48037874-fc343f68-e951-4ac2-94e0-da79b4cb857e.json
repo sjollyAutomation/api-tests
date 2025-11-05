@@ -2000,7 +2000,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "a9619ec9-86d9-4ab0-8fcc-5d26ecd51a94",
+				"id": "2a05d665-26b0-4d40-b4bd-77b7796c2c26",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2123,6 +2123,7 @@
 					"pm.collectionVariables.set(\"requiredFields\", requiredFields);",
 					"pm.collectionVariables.set(\"optionalFields\", optionalFields);",
 					"pm.collectionVariables.set(\"contactDeletedMessage\", \"Contact deleted\");",
+					"console.log(\"{{}}\")",
 					""
 				]
 			}
@@ -2130,7 +2131,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "340452a5-e3ef-4f98-ad42-138d81f6b8df",
+				"id": "2e5c6c2e-bc04-4b12-ad17-ac51aa7e1cfc",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
