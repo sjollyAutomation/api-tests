@@ -102,7 +102,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"{{lastName}}\",\n    \"email\": \"{{emailAddress}}\",\n    \"password\": \"{{password}}\"\n}",
+							"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"{{lastName}}\",\n    \"email\": \"{{emailAddress}}\",\n    \"password\": \"{{$randomPassword}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
