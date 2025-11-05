@@ -54,7 +54,7 @@
 									"});",
 									"",
 									"pm.test(\"User email field has correct values\", function () {",
-									"    pm.expect(user.email, \"user email address to have the correct environment value\").to.eql(pm.collectionVariables.get(\"emailAddress\"));",
+									"    pm.expect(user.email, \"user email address to have the correct environment value\").to.eql(pm.environment.get(\"addEmailAddress\"));",
 									"});",
 									"",
 									"pm.test(\"Token is present in response\", function () {",
