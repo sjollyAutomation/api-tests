@@ -81,8 +81,8 @@
 								"exec": [
 									"const firstName = pm.collectionVariables.get(\"firstName\");",
 									"const lastName = pm.collectionVariables.get(\"lastName\");",
-									"pm.collectionVariables.set(\"email\", pm.variables.replaceIn(\"{{$randomEmail}}\"));",
-									"console.log(emailAddress);",
+									"pm.collectionVariables.set(\"emailAddress\", pm.variables.replaceIn(\"{{$randomEmail}}\"));",
+									"console.log(pm.collectionVariables.get(\"emailAddress\"));",
 									"pm.collectionVariables.set(\"password\", pm.variables.replaceIn(\"{{$randomPassword}}\"));"
 								],
 								"type": "text/javascript",
@@ -2205,6 +2205,10 @@
 		},
 		{
 			"key": "password",
+			"value": ""
+		},
+		{
+			"key": "emailAddress",
 			"value": ""
 		}
 	]
