@@ -82,6 +82,7 @@
 									"const firstName = pm.collectionVariables.get(\"firstName\");",
 									"const lastName = pm.collectionVariables.get(\"lastName\");",
 									"const emailAddress = pm.collectionVariables.get(\"email\");",
+									"console.log(emailAddress);",
 									"pm.collectionVariables.set(\"password\", pm.variables.replaceIn(\"{{$randomPassword}}\"));"
 								],
 								"type": "text/javascript",
