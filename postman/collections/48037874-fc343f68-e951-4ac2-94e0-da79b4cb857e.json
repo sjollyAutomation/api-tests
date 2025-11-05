@@ -2000,7 +2000,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "d3eaf80b-3dda-4e90-bf55-e86c73b6564e",
+				"id": "c45a4f4d-022d-4e13-a16c-e5644df58747",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2131,16 +2131,14 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a8c601e7-bf9a-425e-96f6-97110679615e",
+				"id": "b8e7f742-7cf3-49d3-8a7f-6c2f801ac13d",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
 				"exec": [
 					"pm.test(\"Response time is less than 500ms\", function () {",
 					"    pm.expect(pm.response.responseTime).to.be.below(500);",
-					"});",
-					"",
-					"console.log(pm.collectionVariables.get(\"firstName\"));"
+					"});"
 				]
 			}
 		}
