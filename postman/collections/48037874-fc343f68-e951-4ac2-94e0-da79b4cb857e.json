@@ -81,7 +81,7 @@
 								"exec": [
 									"const firstName = pm.collectionVariables.get(\"firstName\");",
 									"const lastName = pm.collectionVariables.get(\"lastName\");",
-									"const emailAddress = pm.collectionVariables.get(\"email\");",
+									"pm.collectionVariables.set(\"email\", pm.variables.replaceIn(\"{{$randomEmail}}\"));",
 									"console.log(emailAddress);",
 									"pm.collectionVariables.set(\"password\", pm.variables.replaceIn(\"{{$randomPassword}}\"));"
 								],
