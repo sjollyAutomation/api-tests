@@ -2000,7 +2000,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "363d4f94-fa91-4df1-8d3a-030c163076b0",
+				"id": "941d5a30-0b7b-46e8-bba1-53ef15326d79",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2127,6 +2127,10 @@
 					"if (!pm.collectionVariables.get(\"firstName\")) {",
 					"    pm.collectionVariables.set(\"firstName\", pm.variables.replaceIn(\"{{$randomFirstName}}\"));",
 					"}",
+					"",
+					"if (!pm.collectionVariables.get(\"last\")) {",
+					"    pm.collectionVariables.set(\"firstName\", pm.variables.replaceIn(\"{{$randomFirstName}}\"));",
+					"}",
 					""
 				]
 			}
@@ -2134,16 +2138,14 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "b709ad6d-f9c5-4419-95af-0311de8a4c2c",
+				"id": "9c3a44bd-3de8-4be4-8b0a-3c03813ad9cf",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
 				"exec": [
 					"pm.test(\"Response time is less than 500ms\", function () {",
 					"    pm.expect(pm.response.responseTime).to.be.below(500);",
-					"});",
-					"",
-					"console.log(pm.collectionVariables.get(\"firstName\"))"
+					"});"
 				]
 			}
 		}
