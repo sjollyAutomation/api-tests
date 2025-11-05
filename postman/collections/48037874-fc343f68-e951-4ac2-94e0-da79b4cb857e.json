@@ -2000,7 +2000,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "5ef02844-e98f-4366-8510-b2c6be257a10",
+				"id": "373c6eb4-53e8-4d96-8ab5-2d0753e4c520",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2124,7 +2124,7 @@
 					"pm.collectionVariables.set(\"optionalFields\", optionalFields);",
 					"pm.collectionVariables.set(\"contactDeletedMessage\", \"Contact deleted\");",
 					"",
-					"pm.collectionVariables.set(\"firstName\", \"{{randomFirstName\");",
+					"pm.collectionVariables.set(\"firstName\", \"{{randomFirstName}}\");",
 					"console.log(pm.collectionVariables.get(\"firstName\"));",
 					"",
 					""
@@ -2134,7 +2134,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a5464504-8221-4177-a1a2-d0170b8dc662",
+				"id": "67c5926a-4491-4887-8d0a-257205c175a0",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2173,6 +2173,10 @@
 		},
 		{
 			"key": "contactListSchema",
+			"value": ""
+		},
+		{
+			"key": "firstName",
 			"value": ""
 		}
 	]
