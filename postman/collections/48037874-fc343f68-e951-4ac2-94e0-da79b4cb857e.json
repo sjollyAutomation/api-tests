@@ -79,8 +79,8 @@
 							"script": {
 								"id": "bd7e9b52-fb4f-403b-af39-d2351f420bf2",
 								"exec": [
-									"const firstName = pm.collectionVariables.get(\"firstName\");",
-									"const lastName = pm.collectionVariables.get(\"lastName\");",
+									"const userFirstName = pm.collectionVariables.get(\"userFirstName\");",
+									"const userLastName = pm.collectionVariables.get(\"userLastName\");",
 									"pm.collectionVariables.set(\"password\", pm.variables.replaceIn(\"{{$randomPassword}}\"));"
 								],
 								"type": "text/javascript",
@@ -101,7 +101,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"{{lastName}}\",\n    \"email\": \"{{addEmailAddress}}\",\n    \"password\": \"{{password}}\"\n}",
+							"raw": "{\n    \"firstName\": \"{{userFirstName}}\",\n    \"lastName\": \"{{userLastName}}\",\n    \"email\": \"{{addEmailAddress}}\",\n    \"password\": \"{{password}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
