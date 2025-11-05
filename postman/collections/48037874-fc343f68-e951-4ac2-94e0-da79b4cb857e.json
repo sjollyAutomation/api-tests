@@ -2000,7 +2000,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "211c98d1-042d-495d-8543-4760c60fd9c0",
+				"id": "a9c95d61-c577-4979-9717-6a8a443777b4",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2131,6 +2131,10 @@
 					"if (!pm.collectionVariables.get(\"lastName\")) {",
 					"    pm.collectionVariables.set(\"lastName\", pm.variables.replaceIn(\"{{$randomLastName}}\"));",
 					"}",
+					"",
+					"if (!pm.collectionVariables.get(\"email\")) {",
+					"    pm.collectionVariables.set(\"email\", pm.variables.replaceIn(\"{{$randomLastName}}\"));",
+					"}",
 					""
 				]
 			}
@@ -2138,7 +2142,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "676d9fb8-8fa6-4723-ab6f-97190f0cb49c",
+				"id": "1da85317-1814-48b5-804c-de53b7f01cf2",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
