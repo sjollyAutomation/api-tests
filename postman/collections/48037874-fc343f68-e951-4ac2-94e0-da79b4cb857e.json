@@ -2208,6 +2208,14 @@
 		{
 			"key": "emailAddress",
 			"value": ""
+		},
+		{
+			"key": "userFirstName",
+			"value": ""
+		},
+		{
+			"key": "userLastName",
+			"value": ""
 		}
 	]
 }
