@@ -81,8 +81,6 @@
 								"exec": [
 									"const firstName = pm.collectionVariables.get(\"firstName\");",
 									"const lastName = pm.collectionVariables.get(\"lastName\");",
-									"pm.collectionVariables.set(\"emailAddress\", pm.variables.replaceIn(\"{{$randomEmail}}\"));",
-									"console.log(pm.collectionVariables.get(\"emailAddress\"));",
 									"pm.collectionVariables.set(\"password\", pm.variables.replaceIn(\"{{$randomPassword}}\"));"
 								],
 								"type": "text/javascript",
@@ -103,7 +101,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"{{lastName}}\",\n    \"email\": \"{{emailAddress}}\",\n    \"password\": \"{{password}}\"\n}",
+							"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"{{lastName}}\",\n    \"email\": \"{{addEmailAddress}}\",\n    \"password\": \"{{password}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
