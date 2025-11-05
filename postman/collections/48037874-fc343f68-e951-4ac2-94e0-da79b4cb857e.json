@@ -2002,7 +2002,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "6654452e-a2c4-450e-8567-3316dd78b704",
+				"id": "50da178d-2d37-455e-9910-5c09dc349954",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2139,7 +2139,7 @@
 					"}",
 					"",
 					"if (!pm.collectionVariables.get(\"password\")) {",
-					"    pm.collectionVariables.set(\"password\", pm.variables.replaceIn(\"{{$randomEmail}}\"));",
+					"    pm.collectionVariables.set(\"password\", pm.variables.replaceIn(\"{{$randomPassword}}\"));",
 					"}",
 					""
 				]
@@ -2148,7 +2148,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "53485fba-ccd5-4611-9aa0-26292c6228b0",
+				"id": "fba5747d-062b-4196-9caa-8f4e5cbb5cff",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
