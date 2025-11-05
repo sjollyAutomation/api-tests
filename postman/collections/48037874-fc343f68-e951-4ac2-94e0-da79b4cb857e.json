@@ -79,7 +79,9 @@
 							"script": {
 								"id": "bd7e9b52-fb4f-403b-af39-d2351f420bf2",
 								"exec": [
-									""
+									"const firstName = pm.collectionVariables.get(\"firstName\");",
+									"const lastName = pm.collectionVariables.get(\"lastName\");",
+									"const emailAddress = pm.collectionVariables.get(\"email\");"
 								],
 								"type": "text/javascript",
 								"packages": {},
@@ -99,7 +101,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"{{addFirstName}}\",\n    \"lastName\": \"{{addLastName}}\",\n    \"email\": \"{{addEmailAddress}}\",\n    \"password\": \"{{addPassword}}\"\n}",
+							"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"{{lastName}}\",\n    \"email\": \"{{email}}\",\n    \"password\": \"{{addPassword}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
