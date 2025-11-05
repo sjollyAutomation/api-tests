@@ -2000,7 +2000,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "20467961-fe52-4224-835b-72ec6ecd04fc",
+				"id": "363d4f94-fa91-4df1-8d3a-030c163076b0",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2134,7 +2134,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "d2c7d15d-cc0a-4d5c-9886-71f8cc48d60f",
+				"id": "b709ad6d-f9c5-4419-95af-0311de8a4c2c",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2143,7 +2143,7 @@
 					"    pm.expect(pm.response.responseTime).to.be.below(500);",
 					"});",
 					"",
-					"console.log(pm)"
+					"console.log(pm.collectionVariables.get(\"firstName\"))"
 				]
 			}
 		}
