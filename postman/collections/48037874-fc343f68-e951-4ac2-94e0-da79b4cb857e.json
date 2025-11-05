@@ -79,8 +79,6 @@
 							"script": {
 								"id": "bd7e9b52-fb4f-403b-af39-d2351f420bf2",
 								"exec": [
-									"//const userFirstName = pm.collectionVariables.get(\"userFirstName\");",
-									"//const userLastName = pm.collectionVariables.get(\"userLastName\");",
 									"pm.collectionVariables.set(\"password\", pm.variables.replaceIn(\"{{$randomPassword}}\"));"
 								],
 								"type": "text/javascript",
