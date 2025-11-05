@@ -2003,7 +2003,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "50da178d-2d37-455e-9910-5c09dc349954",
+				"id": "dc0aa1d2-f4c8-405f-aec6-8bae70d14387",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2139,9 +2139,9 @@
 					"    pm.collectionVariables.set(\"email\", pm.variables.replaceIn(\"{{$randomEmail}}\"));",
 					"}",
 					"",
-					"if (!pm.collectionVariables.get(\"password\")) {",
-					"    pm.collectionVariables.set(\"password\", pm.variables.replaceIn(\"{{$randomPassword}}\"));",
-					"}",
+					"// if (!pm.collectionVariables.get(\"password\")) {",
+					"//     pm.collectionVariables.set(\"password\", pm.variables.replaceIn(\"{{$randomPassword}}\"));",
+					"// }",
 					""
 				]
 			}
@@ -2149,7 +2149,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "fba5747d-062b-4196-9caa-8f4e5cbb5cff",
+				"id": "c3da7286-3c0e-4877-8e9e-6a789068e665",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
