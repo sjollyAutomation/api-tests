@@ -492,7 +492,7 @@
 											"    pm.expect(jsonData, \"json response matches schema\").to.be.jsonSchema(contactSchema);",
 											"})",
 											"",
-											"pm.collectionVariables.clear(\"email\");"
+											"pm.collectionVariables.unset(\"email\");"
 										],
 										"type": "text/javascript",
 										"packages": {},
@@ -2187,6 +2187,76 @@
 					"});"
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"key": "userSchema",
+			"value": ""
+		},
+		{
+			"key": "schema",
+			"value": ""
+		},
+		{
+			"key": "contactSchema",
+			"value": ""
+		},
+		{
+			"key": "contactListSchema",
+			"value": ""
+		},
+		{
+			"key": "requiredFields",
+			"value": ""
+		},
+		{
+			"key": "optionalFields",
+			"value": ""
+		},
+		{
+			"key": "contactDeletedMessage",
+			"value": ""
+		},
+		{
+			"key": "userFirstName",
+			"value": ""
+		},
+		{
+			"key": "userLastName",
+			"value": ""
+		},
+		{
+			"key": "firstName",
+			"value": ""
+		},
+		{
+			"key": "lastName",
+			"value": ""
+		},
+		{
+			"key": "phone",
+			"value": ""
+		},
+		{
+			"key": "street1",
+			"value": ""
+		},
+		{
+			"key": "street2",
+			"value": ""
+		},
+		{
+			"key": "city",
+			"value": ""
+		},
+		{
+			"key": "state",
+			"value": ""
+		},
+		{
+			"key": "country",
+			"value": ""
 		}
 	]
 }
