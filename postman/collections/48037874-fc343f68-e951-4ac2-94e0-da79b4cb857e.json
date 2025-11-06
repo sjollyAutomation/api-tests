@@ -2228,50 +2228,6 @@
 		{
 			"key": "password",
 			"value": ""
-		},
-		{
-			"key": "userFirstName",
-			"value": ""
-		},
-		{
-			"key": "userLastName",
-			"value": ""
-		},
-		{
-			"key": "firstName",
-			"value": ""
-		},
-		{
-			"key": "lastName",
-			"value": ""
-		},
-		{
-			"key": "email",
-			"value": ""
-		},
-		{
-			"key": "phone",
-			"value": ""
-		},
-		{
-			"key": "street1",
-			"value": ""
-		},
-		{
-			"key": "street2",
-			"value": ""
-		},
-		{
-			"key": "city",
-			"value": ""
-		},
-		{
-			"key": "state",
-			"value": ""
-		},
-		{
-			"key": "country",
-			"value": ""
 		}
 	]
 }
