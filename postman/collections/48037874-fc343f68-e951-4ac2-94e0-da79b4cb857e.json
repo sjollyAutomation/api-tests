@@ -301,7 +301,7 @@
 											"});",
 											"",
 											"pm.test(\"User email field has correct values\", function () {",
-											"    pm.expect(jsonData.email, \"email address to have the correct environment value\").to.eql(pm.environment.get(\"addEmailAddress\"));",
+											"    pm.expect(jsonData.email, \"email address to have the correct environment value\").to.eql(pm.environment.get(\"emailAddress\"));",
 											"});",
 											"",
 											"pm.test(\"Response body matches schema\", function () {",
