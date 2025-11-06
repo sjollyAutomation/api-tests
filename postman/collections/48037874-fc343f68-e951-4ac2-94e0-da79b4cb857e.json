@@ -2002,7 +2002,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "2e3693b8-4a25-4764-9d39-1d43aa6948c4",
+				"id": "41693638-f5ed-499f-b0d1-b9f401441c94",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2143,7 +2143,7 @@
 					"}",
 					"",
 					"if (!pm.collectionVariables.get(\"email\")) {",
-					"    pm.collectionVariables.set(\"email\", pm.variables.replaceIn(\"{{$randomEmail}}\").toLower);",
+					"    pm.collectionVariables.set(\"email\", pm.variables.replaceIn(\"{{$randomEmail}}\").toLowerCase());",
 					"}",
 					"",
 					"if (!pm.collectionVariables.get(\"phone\")) {",
@@ -2175,7 +2175,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "144684e1-572b-415b-95c0-17f5f1d6873e",
+				"id": "8693e320-5003-4e97-bcaf-eda187926140",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
