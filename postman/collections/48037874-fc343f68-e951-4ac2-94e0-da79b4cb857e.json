@@ -2000,7 +2000,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "ceece48f-fed5-4956-b7e8-04e9f1d5d307",
+				"id": "c8c19406-87be-4939-be3e-d2ef0088895d",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2165,7 +2165,7 @@
 					"}",
 					"",
 					"if (!pm.collectionVariables.get(\"country\")) {",
-					"    pm.collectionVariables.set(\"state\", pm.variables.replaceIn(\"{{$randomCountryCode}}\"));",
+					"    pm.collectionVariables.set(\"country\", pm.variables.replaceIn(\"{{$randomCountry}}\"));",
 					"}"
 				]
 			}
@@ -2173,7 +2173,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "bc59721d-2759-46e0-a9a3-b8533aa3dffb",
+				"id": "0bee19d6-6e16-4318-a941-82acd0f453cd",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
