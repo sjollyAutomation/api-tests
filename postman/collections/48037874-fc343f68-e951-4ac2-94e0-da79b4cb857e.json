@@ -2000,7 +2000,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "e6463fec-6c63-43df-939b-e8f4677e3e39",
+				"id": "38b03d09-1499-4a30-a9be-8fb1abce52ee",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2157,7 +2157,7 @@
 					"}",
 					"",
 					"if (!pm.collectionVariables.get(\"city\")) {",
-					"    pm.collectionVariables.set(\"city\", pm.variables.replaceIn(\"{{$randomStreetAddress}}\"));",
+					"    pm.collectionVariables.set(\"city\", pm.variables.replaceIn(\"{{$randomCity}}\"));",
 					"}"
 				]
 			}
@@ -2165,7 +2165,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "4baf4c0a-19e1-457f-83cf-233a2430333b",
+				"id": "8daca1bb-714d-46cd-b6ad-74e56e47d203",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
