@@ -615,7 +615,7 @@
 											"    pm.expect(lastItem.stateProvince, \"State/Province to match the correct variable\").to.eql(pm.collectionVariables.get(\"state\"));",
 											"    pm.expect(lastItem.city, \"City to match the correct variable\").to.eql(pm.collectionVariables.get(\"city\"));",
 											"    pm.expect(lastItem.postalCode, \"Postal code to match the correct variable\").to.eql(pm.environment.get(\"postalCode\"));",
-											"    pm.expect(lastItem.country, \"Country to match the correct variable\").to.eql(pm.ecollectionVariablesnvironment.get(\"country\"));",
+											"    pm.expect(lastItem.country, \"Country to match the correct variable\").to.eql(pm.collectionVariables.get(\"country\"));",
 											"});",
 											"",
 											"pm.test(\"JSON response ownership field matches environment value\", function () {",
@@ -2228,6 +2228,10 @@
 			"value": ""
 		},
 		{
+			"key": "password",
+			"value": ""
+		},
+		{
 			"key": "userFirstName",
 			"value": ""
 		},
@@ -2269,10 +2273,6 @@
 		},
 		{
 			"key": "country",
-			"value": ""
-		},
-		{
-			"key": "password",
 			"value": ""
 		}
 	]
