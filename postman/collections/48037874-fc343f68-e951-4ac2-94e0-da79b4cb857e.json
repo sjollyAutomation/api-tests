@@ -2000,7 +2000,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "403529a8-240f-43ae-86f2-cbff3c89aa96",
+				"id": "50990fec-3160-4054-ad5b-750288ee405a",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2145,7 +2145,7 @@
 					"}",
 					"",
 					"if (!pm.collectionVariables.get(\"contactPhone\")) {",
-					"    pm.collectionVariables.set(\"password\", pm.variables.replaceIn(\"{{$randomPassword}}\"));",
+					"    pm.collectionVariables.set(\"contactPhone\", pm.variables.replaceIn(\"{{$randomPhoneNumber}}\"));",
 					"}",
 					""
 				]
@@ -2154,7 +2154,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "cd168d2c-0f31-49a6-918e-de30287f0817",
+				"id": "f01240c2-66bb-4951-aa86-ecc266150cb3",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
