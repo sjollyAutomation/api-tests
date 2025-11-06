@@ -2000,7 +2000,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "38b03d09-1499-4a30-a9be-8fb1abce52ee",
+				"id": "f2eb395d-e907-4456-b80b-7ed6e21afe32",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2158,6 +2158,10 @@
 					"",
 					"if (!pm.collectionVariables.get(\"city\")) {",
 					"    pm.collectionVariables.set(\"city\", pm.variables.replaceIn(\"{{$randomCity}}\"));",
+					"}",
+					"",
+					"if (!pm.collectionVariables.get(\"state\")) {",
+					"    pm.collectionVariables.set(\"state\", pm.variables.replaceIn(\"{{$randomCity}}\"));",
 					"}"
 				]
 			}
@@ -2165,7 +2169,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "8daca1bb-714d-46cd-b6ad-74e56e47d203",
+				"id": "f78de806-d3e4-4756-9554-9b5b573be144",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
