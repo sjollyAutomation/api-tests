@@ -465,6 +465,8 @@
 											"});",
 											"",
 											"pm.test(\"JSON response contact fields match correct values\", function () {",
+											"    console.log(jsonData.email);",
+											"    console.log(pm.collectionVariables.get(\"email\"));",
 											"    pm.expect(jsonData.email, \"Email address to match environment value\").to.eql(pm.collectionVariables.get(\"email\"));",
 											"    pm.expect(jsonData.phone, \"Phone to match environment value\").to.eql(pm.collectionVariables.get(\"phone\"));",
 											"});",
