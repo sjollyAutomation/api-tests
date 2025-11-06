@@ -2000,7 +2000,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "50990fec-3160-4054-ad5b-750288ee405a",
+				"id": "617469f5-2214-4240-847d-7d56cd1a8174",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2147,6 +2147,10 @@
 					"if (!pm.collectionVariables.get(\"contactPhone\")) {",
 					"    pm.collectionVariables.set(\"contactPhone\", pm.variables.replaceIn(\"{{$randomPhoneNumber}}\"));",
 					"}",
+					"",
+					"if (!pm.collectionVariables.get(\"contactStree\")) {",
+					"    pm.collectionVariables.set(\"contactPhone\", pm.variables.replaceIn(\"{{$randomPhoneNumber}}\"));",
+					"}",
 					""
 				]
 			}
@@ -2154,7 +2158,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "f01240c2-66bb-4951-aa86-ecc266150cb3",
+				"id": "a56d09db-92ce-494b-a109-3adde5238506",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
