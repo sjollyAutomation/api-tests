@@ -2000,7 +2000,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "65e13cb8-b17f-4689-a38f-8bc3d7eb10b7",
+				"id": "58d2d816-2157-4d31-b6bb-0cdfb069dc14",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2140,7 +2140,7 @@
 					"    pm.collectionVariables.set(\"lastName\", pm.variables.replaceIn(\"{{$randomLastName}}\"));",
 					"}",
 					"",
-					"if (!pm.collectionVariables.get(\"email\")) {",
+					"if (!pm.collectionVariables.get(\"emailAddress\")) {",
 					"    pm.collectionVariables.set(\"contactEmail\", pm.variables.replaceIn(\"{{$randomEmail}}\"));",
 					"}",
 					"",
@@ -2165,7 +2165,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "5f0a9d59-6cf1-4225-8df8-c893f019a458",
+				"id": "9968895e-d0c4-40dc-88e0-b19cde2ef081",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
