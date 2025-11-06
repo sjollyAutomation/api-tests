@@ -834,7 +834,7 @@
 											"pm.test(\"JSON response basic identity fields match correct values\", function () {",
 											"    pm.expect(jsonData.firstName, \"First name to match correct value\").to.eql(pm.variables.get(\"updatedFirstName\"));",
 											"    pm.expect(jsonData.lastName, \"Last name to match correct value\").to.eql(pm.collectionVariables.get(\"lastName\"));",
-											"    pm.expect(jsonData.birthdate, \"Birthdate to match correct value\").to.eql(pm.collectionVariables.get(\"birthDate\"));",
+											"    pm.expect(jsonData.birthdate, \"Birthdate to match correct value\").to.eql(pm.environment.get(\"birthDate\"));",
 											"});",
 											"",
 											"pm.test(\"JSON response contact fields match correct values\", function () {",
