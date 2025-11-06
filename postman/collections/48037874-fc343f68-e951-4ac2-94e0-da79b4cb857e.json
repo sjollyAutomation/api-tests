@@ -2244,6 +2244,10 @@
 			"value": ""
 		},
 		{
+			"key": "email",
+			"value": ""
+		},
+		{
 			"key": "phone",
 			"value": ""
 		},
@@ -2268,7 +2272,7 @@
 			"value": ""
 		},
 		{
-			"key": "email",
+			"key": "password",
 			"value": ""
 		}
 	]
