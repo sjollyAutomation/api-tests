@@ -2000,7 +2000,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "50e42c40-d00d-4f17-858e-fb7dab969889",
+				"id": "663a62a7-9026-4363-b832-0c63210ae94f",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -2145,14 +2145,14 @@
 					"}",
 					"",
 					"if (!pm.collectionVariables.get(\"phone\")) {",
-					"    pm.collectionVariables.set(\"contphoneactPhone\", pm.variables.replaceIn(\"{{$randomPhoneNumber}}\"));",
+					"    pm.collectionVariables.set(\"phone\", pm.variables.replaceIn(\"{{$randomPhoneNumber}}\"));",
 					"}",
 					"",
 					"if (!pm.collectionVariables.get(\"street1\")) {",
-					"    pm.collectionVariables.set(\"contactStreet1\", pm.variables.replaceIn(\"{{$randomStreetName}}\"));",
+					"    pm.collectionVariables.set(\"street1\", pm.variables.replaceIn(\"{{$randomStreetName}}\"));",
 					"}",
 					"",
-					"if (!pm.collectionVariables.get(\"contactStreet2\")) {",
+					"if (!pm.collectionVariables.get(\"street2\")) {",
 					"    pm.collectionVariables.set(\"contactStreet2\", pm.variables.replaceIn(\"{{$randomStreetAddress}}\"));",
 					"}",
 					"",
@@ -2165,7 +2165,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "2f86b4c5-1278-486a-8c3b-e70f37de0cdd",
+				"id": "9a68ffdb-77e2-468d-9fce-d4994a3d22c9",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
