@@ -663,7 +663,8 @@
 									"host": [
 										"{{contactListUrl}}contacts"
 									]
-								}
+								},
+								"description": "This request is to list all the contact information of the logged in user."
 							},
 							"response": []
 						},
