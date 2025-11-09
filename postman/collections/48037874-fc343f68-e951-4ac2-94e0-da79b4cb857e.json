@@ -1122,6 +1122,7 @@
 						}
 					],
 					"id": "48037874-58edcb6a-8b60-40d3-9ac4-078bb798ad8c",
+					"description": "The endpoints under Contact directory are to add/update/delete contact information for the logged in user.",
 					"event": [
 						{
 							"listen": "prerequest",
