@@ -112,7 +112,8 @@
 							"host": [
 								"{{contactListUrl}}users"
 							]
-						}
+						},
+						"description": "This request is to add a user with valid required information."
 					},
 					"response": []
 				},
