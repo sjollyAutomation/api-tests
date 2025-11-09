@@ -1833,7 +1833,8 @@
 							"path": [
 								"{{contactId}}"
 							]
-						}
+						},
+						"description": "This request is to get the contact list without logging in."
 					},
 					"response": []
 				},
