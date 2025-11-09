@@ -222,7 +222,8 @@
 							"path": [
 								"login"
 							]
-						}
+						},
+						"description": "This request is to login as a valid user."
 					},
 					"response": []
 				}
