@@ -1740,7 +1740,8 @@
 							"host": [
 								"{{contactListUrl}}contacts"
 							]
-						}
+						},
+						"description": "This request is to add a contact with invalid last name."
 					},
 					"response": []
 				},
