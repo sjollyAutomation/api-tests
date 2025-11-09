@@ -1349,7 +1349,8 @@
 							"host": [
 								"{{contactListUrl}}contacts"
 							]
-						}
+						},
+						"description": "This endpoint is to add a contact for the logged in user to be used for negative scenarios."
 					},
 					"response": []
 				},
