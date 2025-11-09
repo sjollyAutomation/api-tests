@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "48037874-fc343f68-e951-4ac2-94e0-da79b4cb857e",
 		"name": "Contact List",
+		"description": "This Contact List collection is designed to manage contact information. Users must be authenticated to create new contacts, update existing ones, or delete contacts.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -111,7 +112,8 @@
 							"host": [
 								"{{contactListUrl}}users"
 							]
-						}
+						},
+						"description": "This request is to add a user with valid required information."
 					},
 					"response": []
 				},
@@ -220,12 +222,14 @@
 							"path": [
 								"login"
 							]
-						}
+						},
+						"description": "This request is to login as a valid user."
 					},
 					"response": []
 				}
 			],
 			"id": "48037874-2f974920-7f56-4005-ae98-c7a21e147fc5",
+			"description": "The endpoints under Setup directory can be used to add a user and login as that added user to access other services.",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -355,12 +359,14 @@
 									"path": [
 										"me"
 									]
-								}
+								},
+								"description": "This request is to get the logged in user information."
 							},
 							"response": []
 						}
 					],
 					"id": "48037874-f7b77590-e95e-4364-a81f-a4b57423a62d",
+					"description": "The endpoint under this directory is to get user profile.",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -539,7 +545,8 @@
 									"host": [
 										"{{contactListUrl}}contacts"
 									]
-								}
+								},
+								"description": "This request is to add contact information with the required fields and valid information."
 							},
 							"response": []
 						},
@@ -656,7 +663,8 @@
 									"host": [
 										"{{contactListUrl}}contacts"
 									]
-								}
+								},
+								"description": "This request is to list all the contact information of the logged in user."
 							},
 							"response": []
 						},
@@ -768,7 +776,8 @@
 									"path": [
 										"{{contactId}}"
 									]
-								}
+								},
+								"description": "This request is to get the details of a specific contact person."
 							},
 							"response": []
 						},
@@ -899,7 +908,8 @@
 									"path": [
 										"{{contactId}}"
 									]
-								}
+								},
+								"description": "This request is to update specific information of an existing contact."
 							},
 							"response": []
 						},
@@ -1052,7 +1062,8 @@
 									"path": [
 										"{{contactId}}"
 									]
-								}
+								},
+								"description": "This request is to update all the information of an existing contact."
 							},
 							"response": []
 						},
@@ -1110,12 +1121,14 @@
 									"path": [
 										"{{contactId}}"
 									]
-								}
+								},
+								"description": "This request is to delete an existing contact by its id."
 							},
 							"response": []
 						}
 					],
 					"id": "48037874-58edcb6a-8b60-40d3-9ac4-078bb798ad8c",
+					"description": "The endpoints under Contact directory are to add/update/delete contact information for the logged in user.",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -1166,6 +1179,7 @@
 				}
 			],
 			"id": "48037874-6417f24c-ba09-4beb-915e-e29c5f3b3cac",
+			"description": "The endpoints under Basic Endpoint Tests directory are to cover the basic user workflows along with the required tests.",
 			"auth": {
 				"type": "bearer",
 				"bearer": [
@@ -1335,7 +1349,8 @@
 							"host": [
 								"{{contactListUrl}}contacts"
 							]
-						}
+						},
+						"description": "This endpoint is to add a contact for the logged in user to be used for negative scenarios."
 					},
 					"response": []
 				},
@@ -1386,7 +1401,8 @@
 							"path": [
 								"{{invalidContactId}}"
 							]
-						}
+						},
+						"description": "This request is to get contact information of an invalid contact id."
 					},
 					"response": []
 				},
@@ -1454,7 +1470,8 @@
 							"path": [
 								"{{invalidContactId}}"
 							]
-						}
+						},
+						"description": "This request is to update a contact info which doesn't exist."
 					},
 					"response": []
 				},
@@ -1518,7 +1535,8 @@
 							"path": [
 								"{{contactId}}"
 							]
-						}
+						},
+						"description": "This request is to update email address of an existing contact with invalid email address."
 					},
 					"response": []
 				},
@@ -1582,7 +1600,8 @@
 							"path": [
 								"{{contactId}}"
 							]
-						}
+						},
+						"description": "This request is to update birthdate of an existing contact with invalid birthdate."
 					},
 					"response": []
 				},
@@ -1643,7 +1662,8 @@
 							"host": [
 								"{{contactListUrl}}contacts"
 							]
-						}
+						},
+						"description": "This request is add a contact with missing required field."
 					},
 					"response": []
 				},
@@ -1720,7 +1740,8 @@
 							"host": [
 								"{{contactListUrl}}contacts"
 							]
-						}
+						},
+						"description": "This request is to add a contact with invalid last name."
 					},
 					"response": []
 				},
@@ -1762,7 +1783,8 @@
 							"host": [
 								"{{contactListUrl}}contacts"
 							]
-						}
+						},
+						"description": "This request is to get the contact list without logging in."
 					},
 					"response": []
 				},
@@ -1812,7 +1834,8 @@
 							"path": [
 								"{{contactId}}"
 							]
-						}
+						},
+						"description": "This request is to update a contact without logging in."
 					},
 					"response": []
 				},
@@ -1882,12 +1905,14 @@
 							"path": [
 								"{{contactId}}"
 							]
-						}
+						},
+						"description": "This request is to delete the added contact as part of cleanup."
 					},
 					"response": []
 				}
 			],
 			"id": "48037874-9af1b16f-2629-4e61-8143-c415af39177a",
+			"description": "The endpoints under Negative Tests are cover different failures that users should see for invalid values.",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -1995,12 +2020,14 @@
 							"path": [
 								"me"
 							]
-						}
+						},
+						"description": "This request is to delete the added user."
 					},
 					"response": []
 				}
 			],
-			"id": "48037874-da861a8f-4e27-4a94-8a68-81483197a15b"
+			"id": "48037874-da861a8f-4e27-4a94-8a68-81483197a15b",
+			"description": "The endpoint under Cleanup directory is to cleanup the end-to-end testing data."
 		}
 	],
 	"event": [
