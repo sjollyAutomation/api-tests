@@ -1401,7 +1401,8 @@
 							"path": [
 								"{{invalidContactId}}"
 							]
-						}
+						},
+						"description": "This request is to get contact information of an invalid contact id."
 					},
 					"response": []
 				},
