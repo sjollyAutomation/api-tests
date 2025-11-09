@@ -2020,7 +2020,8 @@
 							"path": [
 								"me"
 							]
-						}
+						},
+						"description": "This request is to delete the added user."
 					},
 					"response": []
 				}
