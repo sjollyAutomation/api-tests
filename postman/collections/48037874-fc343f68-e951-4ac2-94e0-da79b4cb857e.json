@@ -1170,7 +1170,7 @@
 				}
 			],
 			"id": "48037874-6417f24c-ba09-4beb-915e-e29c5f3b3cac",
-			"description": "These a",
+			"description": "The endpoints under Basic Endpoint Tests directory are to cover the basic user workflows along with the required tests.",
 			"auth": {
 				"type": "bearer",
 				"bearer": [
