@@ -207,7 +207,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"{{emailAddress}}\",\n    \"password\": \"{{password}}\"\n}",
+							"raw": "{\n    \"email\": \"{{emailAddress}}\",\n    \"password\": \"pass1234\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
