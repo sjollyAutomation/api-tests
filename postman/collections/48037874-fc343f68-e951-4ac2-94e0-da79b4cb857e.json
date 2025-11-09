@@ -545,7 +545,8 @@
 									"host": [
 										"{{contactListUrl}}contacts"
 									]
-								}
+								},
+								"description": "This request is to add contact information with the required fields and valid information."
 							},
 							"response": []
 						},
