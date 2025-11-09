@@ -365,7 +365,7 @@
 						}
 					],
 					"id": "48037874-f7b77590-e95e-4364-a81f-a4b57423a62d",
-					"description": "The endpoint under this directory is to get the logged in user information.",
+					"description": "The endpoint under this directory is to get user profile.",
 					"event": [
 						{
 							"listen": "prerequest",
