@@ -1170,6 +1170,7 @@
 				}
 			],
 			"id": "48037874-6417f24c-ba09-4beb-915e-e29c5f3b3cac",
+			"description": "These a",
 			"auth": {
 				"type": "bearer",
 				"bearer": [
