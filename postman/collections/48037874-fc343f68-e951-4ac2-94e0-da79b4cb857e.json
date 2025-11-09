@@ -776,7 +776,8 @@
 									"path": [
 										"{{contactId}}"
 									]
-								}
+								},
+								"description": "This request is to get the details of a specific contact person."
 							},
 							"response": []
 						},
