@@ -1902,6 +1902,7 @@
 				}
 			],
 			"id": "48037874-9af1b16f-2629-4e61-8143-c415af39177a",
+			"description": "The endpoints under Negative Tests are cover different failures that users should see for invalid values.",
 			"event": [
 				{
 					"listen": "prerequest",
