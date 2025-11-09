@@ -2025,7 +2025,8 @@
 					"response": []
 				}
 			],
-			"id": "48037874-da861a8f-4e27-4a94-8a68-81483197a15b"
+			"id": "48037874-da861a8f-4e27-4a94-8a68-81483197a15b",
+			"description": "The endpoint under Cleanup directory is to cleanup the end-to-end testing data."
 		}
 	],
 	"event": [
