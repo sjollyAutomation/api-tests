@@ -1662,7 +1662,8 @@
 							"host": [
 								"{{contactListUrl}}contacts"
 							]
-						}
+						},
+						"description": "This request is add a contact with missing required field."
 					},
 					"response": []
 				},
