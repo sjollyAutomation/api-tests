@@ -1835,7 +1835,7 @@
 								"{{contactId}}"
 							]
 						},
-						"description": "This request is to get the contact list without logging in."
+						"description": "This request is to update a contact without logging in."
 					},
 					"response": []
 				},
