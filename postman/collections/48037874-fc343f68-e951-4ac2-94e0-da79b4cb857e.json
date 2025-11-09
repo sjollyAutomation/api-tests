@@ -227,7 +227,7 @@
 				}
 			],
 			"id": "48037874-2f974920-7f56-4005-ae98-c7a21e147fc5",
-			"description": "This",
+			"description": "The endpoints under Setup directory can be used to add a user and login as that added user to access other services.",
 			"event": [
 				{
 					"listen": "prerequest",
