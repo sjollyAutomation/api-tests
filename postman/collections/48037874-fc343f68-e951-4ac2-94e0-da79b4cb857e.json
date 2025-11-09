@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "48037874-fc343f68-e951-4ac2-94e0-da79b4cb857e",
 		"name": "Contact List",
-		"description": "This Contact List collection is to create contacts with details information. A valid user needs to login to update own information as well as create a new contact along with updating and deleting existing contact information.",
+		"description": "This Contact List collection is designed to manage contact information. Users must be authenticated to create new contacts, update existing ones, or delete contacts.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
