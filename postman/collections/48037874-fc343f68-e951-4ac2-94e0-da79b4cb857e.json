@@ -1398,7 +1398,7 @@
 					"name": "Setup",
 					"item": [
 						{
-							"name": "Setup - Add Contact",
+							"name": "Add Contact",
 							"event": [
 								{
 									"listen": "test",
