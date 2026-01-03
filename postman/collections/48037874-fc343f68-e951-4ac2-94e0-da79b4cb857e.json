@@ -1226,11 +1226,6 @@
 					"name": "Unauthenticated",
 					"item": [
 						{
-							"name": "New Folder",
-							"item": [],
-							"id": "48037874-2d6d55c6-a83c-4f79-9ec4-6436a409b6d5"
-						},
-						{
 							"name": "Unauthenticated User Profile",
 							"event": [
 								{
@@ -1393,6 +1388,106 @@
 						}
 					],
 					"id": "48037874-30889642-bb40-442c-8b9e-b6ca7fdfec2f"
+				},
+				{
+					"name": "Unauthorized",
+					"item": [
+						{
+							"name": "Unauthorized - Get Contact List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7c7f52a9-c09a-490c-89b3-f73da5b20e16",
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {",
+											"    pm.response.to.have.status(401);",
+											"});",
+											"",
+											"pm.test(\"Response body contains error message for unauthentication\", function () {",
+											"    pm.expect(pm.response.json().error).to.eql(pm.variables.get(\"unauthenticatedMessage\"));",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48037874-2b701ba0-b049-4511-938e-7bf43528909f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"Shoma\",\n    \"lastName\": \"Imran\",\n    \"email\": \"simran@test.com\",\n    \"password\": \"myPassword\"\n}"
+								},
+								"url": {
+									"raw": "{{contactListUrl}}contacts",
+									"host": [
+										"{{contactListUrl}}contacts"
+									]
+								},
+								"description": "This request is to get the contact list without logging in."
+							},
+							"response": []
+						},
+						{
+							"name": "Unauthorized - Update Contact",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "544a57cf-af03-4f70-8e78-349c294c214f",
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {",
+											"    pm.response.to.have.status(401);",
+											"});",
+											"",
+											"pm.test(\"Response body contains error message for unauthentication\", function () {",
+											"    pm.expect(pm.response.json().error).to.eql(pm.variables.get(\"unauthenticatedMessage\"));",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48037874-29268da4-ad25-4cc1-8571-c628caf8f4dc",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"John H\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{contactListUrl}}contacts/{{contactId}}",
+									"host": [
+										"{{contactListUrl}}contacts"
+									],
+									"path": [
+										"{{contactId}}"
+									]
+								},
+								"description": "This request is to update a contact without logging in."
+							},
+							"response": []
+						}
+					],
+					"id": "48037874-2d6d55c6-a83c-4f79-9ec4-6436a409b6d5"
 				},
 				{
 					"name": "Setup - Add Contact",
@@ -1918,100 +2013,6 @@
 					"response": []
 				},
 				{
-					"name": "Unauthorized - Get Contact List",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "7c7f52a9-c09a-490c-89b3-f73da5b20e16",
-								"exec": [
-									"pm.test(\"Status code is 401\", function () {",
-									"    pm.response.to.have.status(401);",
-									"});",
-									"",
-									"pm.test(\"Response body contains error message for unauthentication\", function () {",
-									"    pm.expect(pm.response.json().error).to.eql(pm.variables.get(\"unauthenticatedMessage\"));",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"id": "48037874-2b701ba0-b049-4511-938e-7bf43528909f",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"Shoma\",\n    \"lastName\": \"Imran\",\n    \"email\": \"simran@test.com\",\n    \"password\": \"myPassword\"\n}"
-						},
-						"url": {
-							"raw": "{{contactListUrl}}contacts",
-							"host": [
-								"{{contactListUrl}}contacts"
-							]
-						},
-						"description": "This request is to get the contact list without logging in."
-					},
-					"response": []
-				},
-				{
-					"name": "Unauthorized - Update Contact",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "544a57cf-af03-4f70-8e78-349c294c214f",
-								"exec": [
-									"pm.test(\"Status code is 401\", function () {",
-									"    pm.response.to.have.status(401);",
-									"});",
-									"",
-									"pm.test(\"Response body contains error message for unauthentication\", function () {",
-									"    pm.expect(pm.response.json().error).to.eql(pm.variables.get(\"unauthenticatedMessage\"));",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"id": "48037874-29268da4-ad25-4cc1-8571-c628caf8f4dc",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"John H\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{contactListUrl}}contacts/{{contactId}}",
-							"host": [
-								"{{contactListUrl}}contacts"
-							],
-							"path": [
-								"{{contactId}}"
-							]
-						},
-						"description": "This request is to update a contact without logging in."
-					},
-					"response": []
-				},
-				{
 					"name": "Cleanup - Delete Contact",
 					"event": [
 						{
@@ -2079,6 +2080,18 @@
 							]
 						},
 						"description": "This request is to delete the added contact as part of cleanup."
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "48037874-10ac916c-8b2d-4806-8c18-8aa94ba65cef",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
