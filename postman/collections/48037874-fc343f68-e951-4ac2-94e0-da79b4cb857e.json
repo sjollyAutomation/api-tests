@@ -1226,7 +1226,7 @@
 					"name": "Unauthenticated",
 					"item": [
 						{
-							"name": "Unauthenticated User Profile",
+							"name": "User Profile",
 							"event": [
 								{
 									"listen": "test",
