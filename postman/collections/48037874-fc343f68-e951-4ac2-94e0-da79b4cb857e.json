@@ -1539,49 +1539,6 @@
 					"name": "Unauthorized",
 					"item": [
 						{
-							"name": "Unauthorized - Get Contact List",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "7c7f52a9-c09a-490c-89b3-f73da5b20e16",
-										"exec": [
-											"pm.test(\"Status code is 401\", function () {",
-											"    pm.response.to.have.status(401);",
-											"});",
-											"",
-											"pm.test(\"Response body contains error message for unauthentication\", function () {",
-											"    pm.expect(pm.response.json().error).to.eql(pm.variables.get(\"unauthenticatedMessage\"));",
-											"});"
-										],
-										"type": "text/javascript",
-										"packages": {},
-										"requests": {}
-									}
-								}
-							],
-							"id": "48037874-2b701ba0-b049-4511-938e-7bf43528909f",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"firstName\": \"Shoma\",\n    \"lastName\": \"Imran\",\n    \"email\": \"simran@test.com\",\n    \"password\": \"myPassword\"\n}"
-								},
-								"url": {
-									"raw": "{{contactListUrl}}contacts",
-									"host": [
-										"{{contactListUrl}}contacts"
-									]
-								},
-								"description": "This request is to get the contact list without logging in."
-							},
-							"response": []
-						},
-						{
 							"name": "Unauthorized - Update Contact",
 							"event": [
 								{
