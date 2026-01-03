@@ -2028,7 +2028,7 @@
 					"response": []
 				},
 				{
-					"name": "{{contactListUrl}}contacts",
+					"name": "Unauthenticated Get Contact List",
 					"id": "48037874-f467dff1-4645-417a-93e0-b8fa86d9b006",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
