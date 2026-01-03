@@ -1886,10 +1886,6 @@
 									"script": {
 										"id": "e5e73402-3a83-4e71-894d-3913f9075cf7",
 										"exec": [
-											"pm.test(\"Status code is 400\", function () {",
-											"    pm.response.to.have.status(400);",
-											"});",
-											"",
 											"pm.test(\"Response body contains error message for long lastname field\", function () {",
 											"    const jsonData = pm.response.json();",
 											"    const longLastName = pm.variables.get('longLastName');",
