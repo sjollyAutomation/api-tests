@@ -1341,6 +1341,29 @@
 				},
 				{
 					"name": "Unauthenticated Get Contact List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bf265791-18ea-4e29-ac74-56e1e4e92e2c",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"Response body contains error message for unauthenticated user\", function () {",
+									"    const jsonData = pm.response.json();",
+									"    const errorMessage = \"Please authenticate.\";",
+									"    ",
+									"    pm.expect(jsonData.error).to.eql(errorMessage);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
 					"id": "48037874-f467dff1-4645-417a-93e0-b8fa86d9b006",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
