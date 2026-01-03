@@ -2031,75 +2031,81 @@
 					"id": "48037874-e5cb5bca-f337-463e-9c62-ddf3ece9089b"
 				},
 				{
-					"name": "Cleanup - Delete Contact",
-					"event": [
+					"name": "Cleanup",
+					"item": [
 						{
-							"listen": "test",
-							"script": {
-								"id": "e780a712-05b8-4061-83fe-f8b510082c43",
-								"exec": [
-									"pm.test(\"Response Content-Type is HTML\", function () {",
-									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('text/html');",
-									"});",
-									"",
-									"pm.test(\"Response body confirms contact deleted\", function () {",
-									"    pm.expect(pm.response.text()).to.eql(pm.collectionVariables.get(\"contactDeletedMessage\"));",
-									"})",
-									"",
-									"pm.environment.set(\"invalidContactId\", pm.environment.get(\"contactId\"));",
-									"pm.environment.unset(\"contactId\");"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "e0a915ff-dee9-460a-ba77-4180155385c2",
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
+							"name": "Cleanup - Delete Contact",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e780a712-05b8-4061-83fe-f8b510082c43",
+										"exec": [
+											"pm.test(\"Response Content-Type is HTML\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.include('text/html');",
+											"});",
+											"",
+											"pm.test(\"Response body confirms contact deleted\", function () {",
+											"    pm.expect(pm.response.text()).to.eql(pm.collectionVariables.get(\"contactDeletedMessage\"));",
+											"})",
+											"",
+											"pm.environment.set(\"invalidContactId\", pm.environment.get(\"contactId\"));",
+											"pm.environment.unset(\"contactId\");"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "e0a915ff-dee9-460a-ba77-4180155385c2",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48037874-a4fcd044-ffc5-4101-9820-0e9e85720b47",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{contactListUrl}}contacts/{{contactId}}",
+									"host": [
+										"{{contactListUrl}}contacts"
+									],
+									"path": [
+										"{{contactId}}"
+									]
+								},
+								"description": "This request is to delete the added contact as part of cleanup."
+							},
+							"response": []
 						}
 					],
-					"id": "48037874-a4fcd044-ffc5-4101-9820-0e9e85720b47",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{contactListUrl}}contacts/{{contactId}}",
-							"host": [
-								"{{contactListUrl}}contacts"
-							],
-							"path": [
-								"{{contactId}}"
-							]
-						},
-						"description": "This request is to delete the added contact as part of cleanup."
-					},
-					"response": []
+					"id": "48037874-be272510-c8ad-43f7-b0f5-3ef0940a0203"
 				}
 			],
 			"id": "48037874-9af1b16f-2629-4e61-8143-c415af39177a",
