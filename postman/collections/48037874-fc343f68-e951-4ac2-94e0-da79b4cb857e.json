@@ -1365,7 +1365,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "6cc94bf3-2914-4881-8828-01ca9b12fd48",
+								"id": "b2ce829d-a639-406c-be20-ca53f727fde7",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
@@ -1377,7 +1377,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "358f7b68-995a-4010-ad84-2a291478ac70",
+								"id": "18ae7761-be31-483d-b1a5-3dfd963af1e4",
 								"type": "text/javascript",
 								"packages": {},
 								"requests": {},
@@ -1386,11 +1386,8 @@
 									"    pm.response.to.have.status(401);",
 									"});",
 									"",
-									"pm.test(\"Response body contains error message for unauthenticated user\", function () {",
-									"    const jsonData = pm.response.json();",
-									"    const errorMessage = \"Please authenticate.\";",
-									"    ",
-									"    pm.expect(jsonData.error).to.eql(errorMessage);",
+									"pm.test(\"Response body contains error message for unauthentication\", function () {",
+									"    pm.expect(pm.response.json().error).to.eql(pm.variables.get(\"unauthenticatedMessage\"));",
 									"});"
 								]
 							}
