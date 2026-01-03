@@ -1340,6 +1340,27 @@
 					"response": []
 				},
 				{
+					"name": "Unauthenticated Get Contact List",
+					"id": "48037874-f467dff1-4645-417a-93e0-b8fa86d9b006",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{contactListUrl}}contacts",
+							"host": [
+								"{{contactListUrl}}contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Setup - Add Contact",
 					"event": [
 						{
@@ -2024,18 +2045,6 @@
 							]
 						},
 						"description": "This request is to delete the added contact as part of cleanup."
-					},
-					"response": []
-				},
-				{
-					"name": "Unauthenticated Get Contact List",
-					"id": "48037874-f467dff1-4645-417a-93e0-b8fa86d9b006",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": []
 					},
 					"response": []
 				}
