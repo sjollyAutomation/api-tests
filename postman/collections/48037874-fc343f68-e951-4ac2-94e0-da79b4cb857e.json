@@ -1628,6 +1628,11 @@
 					"id": "48037874-2d6d55c6-a83c-4f79-9ec4-6436a409b6d5"
 				},
 				{
+					"name": "New Folder",
+					"item": [],
+					"id": "48037874-93e75cb4-0dc3-457a-9051-3693510f6ee8"
+				},
+				{
 					"name": "Not Found - Get Contact",
 					"event": [
 						{
