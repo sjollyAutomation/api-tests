@@ -1224,169 +1224,170 @@
 			"item": [
 				{
 					"name": "Unauthenticated",
-					"item": [],
-					"id": "48037874-30889642-bb40-442c-8b9e-b6ca7fdfec2f"
-				},
-				{
-					"name": "Unauthenticated User Profile",
-					"event": [
+					"item": [
 						{
-							"listen": "test",
-							"script": {
-								"id": "8aee720b-b97b-40d9-a040-e3ded6f143c9",
-								"exec": [
-									"pm.test(\"Status code is 401\", function () {",
-									"    pm.response.to.have.status(401);",
-									"});",
-									"",
-									"pm.test(\"Response body contains error message for unauthenticated user\", function () {",
-									"    const jsonData = pm.response.json();",
-									"    const errorMessage = \"Please authenticate.\";",
-									"    ",
-									"    pm.expect(jsonData.error).to.eql(errorMessage);",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "7a75845f-7869-40dc-a922-5bc40902e9de",
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"id": "48037874-f0545b87-cc70-48de-a3c4-8e935d262307",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{contactListUrl}}users/me",
-							"host": [
-								"{{contactListUrl}}users"
-							],
-							"path": [
-								"me"
-							]
-						},
-						"description": "This request is to get the logged in user information."
-					},
-					"response": []
-				},
-				{
-					"name": "Unauthenticated Add Contact",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "634580f9-f117-4a11-9dad-7cbe51644eea",
-								"exec": [
-									"pm.test(\"Status code is 401\", function () {",
-									"    pm.response.to.have.status(401);",
-									"});",
-									"",
-									"pm.test(\"Response body contains error message for unauthenticated user\", function () {",
-									"    const jsonData = pm.response.json();",
-									"    const errorMessage = \"Please authenticate.\";",
-									"    ",
-									"    pm.expect(jsonData.error).to.eql(errorMessage);",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"id": "48037874-66d51730-3055-40c8-9463-e21e0d6b5c0d",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"{{lastName}}\",\n    \"birthdate\": \"{{birthDate}}\",\n    \"email\": \"{{email}}\",\n    \"phone\": \"{{phone}}\",\n    \"street1\": \"{{street1}}\",\n    \"street2\": \"{{street2}}\",\n    \"city\": \"{{city}}\",\n    \"stateProvince\": \"{{state}}\",\n    \"postalCode\": \"{{postalCode}}\",\n    \"country\": \"{{country}}\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"name": "Unauthenticated User Profile",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8aee720b-b97b-40d9-a040-e3ded6f143c9",
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {",
+											"    pm.response.to.have.status(401);",
+											"});",
+											"",
+											"pm.test(\"Response body contains error message for unauthenticated user\", function () {",
+											"    const jsonData = pm.response.json();",
+											"    const errorMessage = \"Please authenticate.\";",
+											"    ",
+											"    pm.expect(jsonData.error).to.eql(errorMessage);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "7a75845f-7869-40dc-a922-5bc40902e9de",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
 								}
-							}
+							],
+							"id": "48037874-f0545b87-cc70-48de-a3c4-8e935d262307",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{contactListUrl}}users/me",
+									"host": [
+										"{{contactListUrl}}users"
+									],
+									"path": [
+										"me"
+									]
+								},
+								"description": "This request is to get the logged in user information."
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "{{contactListUrl}}contacts",
-							"host": [
-								"{{contactListUrl}}contacts"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Unauthenticated Get Contact List",
-					"event": [
 						{
-							"listen": "test",
-							"script": {
-								"id": "bf265791-18ea-4e29-ac74-56e1e4e92e2c",
-								"exec": [
-									"pm.test(\"Status code is 401\", function () {",
-									"    pm.response.to.have.status(401);",
-									"});",
-									"",
-									"pm.test(\"Response body contains error message for unauthenticated user\", function () {",
-									"    const jsonData = pm.response.json();",
-									"    const errorMessage = \"Please authenticate.\";",
-									"    ",
-									"    pm.expect(jsonData.error).to.eql(errorMessage);",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
+							"name": "Unauthenticated Add Contact",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "634580f9-f117-4a11-9dad-7cbe51644eea",
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {",
+											"    pm.response.to.have.status(401);",
+											"});",
+											"",
+											"pm.test(\"Response body contains error message for unauthenticated user\", function () {",
+											"    const jsonData = pm.response.json();",
+											"    const errorMessage = \"Please authenticate.\";",
+											"    ",
+											"    pm.expect(jsonData.error).to.eql(errorMessage);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48037874-66d51730-3055-40c8-9463-e21e0d6b5c0d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"{{lastName}}\",\n    \"birthdate\": \"{{birthDate}}\",\n    \"email\": \"{{email}}\",\n    \"phone\": \"{{phone}}\",\n    \"street1\": \"{{street1}}\",\n    \"street2\": \"{{street2}}\",\n    \"city\": \"{{city}}\",\n    \"stateProvince\": \"{{state}}\",\n    \"postalCode\": \"{{postalCode}}\",\n    \"country\": \"{{country}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{contactListUrl}}contacts",
+									"host": [
+										"{{contactListUrl}}contacts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Unauthenticated Get Contact List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bf265791-18ea-4e29-ac74-56e1e4e92e2c",
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {",
+											"    pm.response.to.have.status(401);",
+											"});",
+											"",
+											"pm.test(\"Response body contains error message for unauthenticated user\", function () {",
+											"    const jsonData = pm.response.json();",
+											"    const errorMessage = \"Please authenticate.\";",
+											"    ",
+											"    pm.expect(jsonData.error).to.eql(errorMessage);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48037874-f467dff1-4645-417a-93e0-b8fa86d9b006",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{contactListUrl}}contacts",
+									"host": [
+										"{{contactListUrl}}contacts"
+									]
+								}
+							},
+							"response": []
 						}
 					],
-					"id": "48037874-f467dff1-4645-417a-93e0-b8fa86d9b006",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{contactListUrl}}contacts",
-							"host": [
-								"{{contactListUrl}}contacts"
-							]
-						}
-					},
-					"response": []
+					"id": "48037874-30889642-bb40-442c-8b9e-b6ca7fdfec2f"
 				},
 				{
 					"name": "Setup - Add Contact",
