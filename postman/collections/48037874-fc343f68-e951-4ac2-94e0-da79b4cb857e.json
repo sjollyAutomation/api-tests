@@ -1405,11 +1405,20 @@
 									"script": {
 										"id": "a1ff6b76-c8ef-40c8-a4ab-bc03d2a31e61",
 										"exec": [
-											""
+											"pm.test(\"Status code is 401\", function () {",
+											"    pm.response.to.have.status(401);",
+											"});"
 										],
 										"type": "text/javascript",
 										"packages": {},
 										"requests": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"packages": {},
+										"type": "text/javascript"
 									}
 								}
 							],
