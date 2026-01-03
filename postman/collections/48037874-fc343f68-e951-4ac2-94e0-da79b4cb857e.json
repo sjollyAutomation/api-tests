@@ -1226,6 +1226,54 @@
 					"name": "Unauthenticated",
 					"item": [
 						{
+							"name": "Invalid Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a1ff6b76-c8ef-40c8-a4ab-bc03d2a31e61",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48037874-0b4fe1e5-b202-4c3d-921b-125abd5138ce",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test@test.com\",\n    \"password\": \"{{password}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{contactListUrl}}users/login",
+									"host": [
+										"{{contactListUrl}}users"
+									],
+									"path": [
+										"login"
+									]
+								},
+								"description": "This request is to login as a valid user."
+							},
+							"response": []
+						},
+						{
 							"name": "User Profile",
 							"event": [
 								{
@@ -1686,54 +1734,6 @@
 				{
 					"name": "Invalid Input",
 					"item": [
-						{
-							"name": "Invalid Login",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "a1ff6b76-c8ef-40c8-a4ab-bc03d2a31e61",
-										"exec": [
-											""
-										],
-										"type": "text/javascript",
-										"packages": {},
-										"requests": {}
-									}
-								}
-							],
-							"id": "48037874-0b4fe1e5-b202-4c3d-921b-125abd5138ce",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"test@test.com\",\n    \"password\": \"{{password}}\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{contactListUrl}}users/login",
-									"host": [
-										"{{contactListUrl}}users"
-									],
-									"path": [
-										"login"
-									]
-								},
-								"description": "This request is to login as a valid user."
-							},
-							"response": []
-						},
 						{
 							"name": "Invalid Email Address",
 							"event": [
