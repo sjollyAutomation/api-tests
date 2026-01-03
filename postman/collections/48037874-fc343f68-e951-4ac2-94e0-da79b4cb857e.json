@@ -1756,278 +1756,279 @@
 				},
 				{
 					"name": "Invalid Input",
-					"item": [],
+					"item": [
+						{
+							"name": "Invalid Email Address Update Contact",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f373ea42-eed0-475b-a537-2f4c4a54a358",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"Response body contains error message for invalid email address\", function () {",
+											"    const jsonData = pm.response.json();",
+											"    const errorMessage = \"Email is invalid\";",
+											"    ",
+											"    pm.expect(jsonData.errors.email.message).to.include(errorMessage);",
+											"    pm.expect(jsonData.message).to.include(errorMessage);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48037874-5f924462-eb95-4f9c-a716-930121f02cda",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test@test\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{contactListUrl}}contacts/{{contactId}}",
+									"host": [
+										"{{contactListUrl}}contacts"
+									],
+									"path": [
+										"{{contactId}}"
+									]
+								},
+								"description": "This request is to update email address of an existing contact with invalid email address."
+							},
+							"response": []
+						},
+						{
+							"name": "Invalid Birthdate Update Contact",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f373ea42-eed0-475b-a537-2f4c4a54a358",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"Response body contains error message for invalid birthdate\", function () {",
+											"    const jsonData = pm.response.json();",
+											"    const errorMessage = \"Birthdate is invalid\";",
+											"    ",
+											"    pm.expect(jsonData.errors.birthdate.message).to.include(errorMessage);",
+											"    pm.expect(jsonData.message).to.include(errorMessage);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48037874-973f9c30-d26a-4b6b-82c3-b83b387e807c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"birthdate\": \"1980-13-10\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{contactListUrl}}contacts/{{contactId}}",
+									"host": [
+										"{{contactListUrl}}contacts"
+									],
+									"path": [
+										"{{contactId}}"
+									]
+								},
+								"description": "This request is to update birthdate of an existing contact with invalid birthdate."
+							},
+							"response": []
+						},
+						{
+							"name": "Missing Required Field Add Contact",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6e214382-e291-4c8a-bd4a-6ccc7d15eefa",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"Response body contains error message for missing required field\", function () {",
+											"    const jsonData = pm.response.json();",
+											"    const errorMessage = \"`lastName` is required.\";",
+											"    ",
+											"    pm.expect(jsonData.errors.lastName.message).to.include(errorMessage);",
+											"    pm.expect(jsonData.message).to.include(errorMessage);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48037874-ecda3dee-023f-410c-ad02-274f797634f7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"\",\n    \"birthdate\": \"{{birthDate}}\",\n    \"email\": \"{{emailAddress}}\",\n    \"phone\": \"{{phone}}\",\n    \"street1\": \"{{street}}\",\n    \"street2\": \"{{house}}\",\n    \"city\": \"{{city}}\",\n    \"stateProvince\": \"{{province}}\",\n    \"postalCode\": \"{{postalCode}}\",\n    \"country\": \"{{country}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{contactListUrl}}contacts",
+									"host": [
+										"{{contactListUrl}}contacts"
+									]
+								},
+								"description": "This request is add a contact with missing required field."
+							},
+							"response": []
+						},
+						{
+							"name": "Last Name Too Long Add Contact",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e5e73402-3a83-4e71-894d-3913f9075cf7",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"Response body contains error message for long lastname field\", function () {",
+											"    const jsonData = pm.response.json();",
+											"    const longLastName = pm.variables.get('longLastName');",
+											"    const errorMessage = `Path \\`lastName\\` (\\`${longLastName}\\`) is longer than the maximum allowed length (20).`;",
+											"    ",
+											"    pm.expect(jsonData.errors.lastName.message).to.include(errorMessage);",
+											"    pm.expect(jsonData.message).to.include(errorMessage);",
+											"});",
+											"",
+											"pm.variables.unset(\"longLastName\");"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "fd66290c-7776-4fd6-bf0f-185c4be9988e",
+										"exec": [
+											"const lastName = pm.collectionVariables.get(\"lastName\");",
+											"pm.variables.set(\"longLastName\", lastName.repeat(5));"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48037874-2db2c48a-0b92-4cc1-a139-fa3f4e5b85ee",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"{{longLastName}}\",\n    \"birthdate\": \"{{birthDate}}\",\n    \"email\": \"{{email}}\",\n    \"phone\": \"{{phone}}\",\n    \"street1\": \"{{street1}}\",\n    \"street2\": \"{{street2}}\",\n    \"city\": \"{{city}}\",\n    \"stateProvince\": \"{{state}}\",\n    \"postalCode\": \"{{postalCode}}\",\n    \"country\": \"{{country}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{contactListUrl}}contacts",
+									"host": [
+										"{{contactListUrl}}contacts"
+									]
+								},
+								"description": "This request is to add a contact with invalid last name."
+							},
+							"response": []
+						}
+					],
 					"id": "48037874-e5cb5bca-f337-463e-9c62-ddf3ece9089b"
-				},
-				{
-					"name": "Invalid Email Address Update Contact",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "f373ea42-eed0-475b-a537-2f4c4a54a358",
-								"exec": [
-									"pm.test(\"Status code is 400\", function () {",
-									"    pm.response.to.have.status(400);",
-									"});",
-									"",
-									"pm.test(\"Response body contains error message for invalid email address\", function () {",
-									"    const jsonData = pm.response.json();",
-									"    const errorMessage = \"Email is invalid\";",
-									"    ",
-									"    pm.expect(jsonData.errors.email.message).to.include(errorMessage);",
-									"    pm.expect(jsonData.message).to.include(errorMessage);",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"id": "48037874-5f924462-eb95-4f9c-a716-930121f02cda",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"test@test\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{contactListUrl}}contacts/{{contactId}}",
-							"host": [
-								"{{contactListUrl}}contacts"
-							],
-							"path": [
-								"{{contactId}}"
-							]
-						},
-						"description": "This request is to update email address of an existing contact with invalid email address."
-					},
-					"response": []
-				},
-				{
-					"name": "Invalid Birthdate Update Contact",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "f373ea42-eed0-475b-a537-2f4c4a54a358",
-								"exec": [
-									"pm.test(\"Status code is 400\", function () {",
-									"    pm.response.to.have.status(400);",
-									"});",
-									"",
-									"pm.test(\"Response body contains error message for invalid birthdate\", function () {",
-									"    const jsonData = pm.response.json();",
-									"    const errorMessage = \"Birthdate is invalid\";",
-									"    ",
-									"    pm.expect(jsonData.errors.birthdate.message).to.include(errorMessage);",
-									"    pm.expect(jsonData.message).to.include(errorMessage);",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"id": "48037874-973f9c30-d26a-4b6b-82c3-b83b387e807c",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"birthdate\": \"1980-13-10\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{contactListUrl}}contacts/{{contactId}}",
-							"host": [
-								"{{contactListUrl}}contacts"
-							],
-							"path": [
-								"{{contactId}}"
-							]
-						},
-						"description": "This request is to update birthdate of an existing contact with invalid birthdate."
-					},
-					"response": []
-				},
-				{
-					"name": "Missing Required Field Add Contact",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "6e214382-e291-4c8a-bd4a-6ccc7d15eefa",
-								"exec": [
-									"pm.test(\"Status code is 400\", function () {",
-									"    pm.response.to.have.status(400);",
-									"});",
-									"",
-									"pm.test(\"Response body contains error message for missing required field\", function () {",
-									"    const jsonData = pm.response.json();",
-									"    const errorMessage = \"`lastName` is required.\";",
-									"    ",
-									"    pm.expect(jsonData.errors.lastName.message).to.include(errorMessage);",
-									"    pm.expect(jsonData.message).to.include(errorMessage);",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"id": "48037874-ecda3dee-023f-410c-ad02-274f797634f7",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"\",\n    \"birthdate\": \"{{birthDate}}\",\n    \"email\": \"{{emailAddress}}\",\n    \"phone\": \"{{phone}}\",\n    \"street1\": \"{{street}}\",\n    \"street2\": \"{{house}}\",\n    \"city\": \"{{city}}\",\n    \"stateProvince\": \"{{province}}\",\n    \"postalCode\": \"{{postalCode}}\",\n    \"country\": \"{{country}}\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{contactListUrl}}contacts",
-							"host": [
-								"{{contactListUrl}}contacts"
-							]
-						},
-						"description": "This request is add a contact with missing required field."
-					},
-					"response": []
-				},
-				{
-					"name": "Last Name Too Long Add Contact",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "e5e73402-3a83-4e71-894d-3913f9075cf7",
-								"exec": [
-									"pm.test(\"Status code is 400\", function () {",
-									"    pm.response.to.have.status(400);",
-									"});",
-									"",
-									"pm.test(\"Response body contains error message for long lastname field\", function () {",
-									"    const jsonData = pm.response.json();",
-									"    const longLastName = pm.variables.get('longLastName');",
-									"    const errorMessage = `Path \\`lastName\\` (\\`${longLastName}\\`) is longer than the maximum allowed length (20).`;",
-									"    ",
-									"    pm.expect(jsonData.errors.lastName.message).to.include(errorMessage);",
-									"    pm.expect(jsonData.message).to.include(errorMessage);",
-									"});",
-									"",
-									"pm.variables.unset(\"longLastName\");"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "fd66290c-7776-4fd6-bf0f-185c4be9988e",
-								"exec": [
-									"const lastName = pm.collectionVariables.get(\"lastName\");",
-									"pm.variables.set(\"longLastName\", lastName.repeat(5));"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"id": "48037874-2db2c48a-0b92-4cc1-a139-fa3f4e5b85ee",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"{{longLastName}}\",\n    \"birthdate\": \"{{birthDate}}\",\n    \"email\": \"{{email}}\",\n    \"phone\": \"{{phone}}\",\n    \"street1\": \"{{street1}}\",\n    \"street2\": \"{{street2}}\",\n    \"city\": \"{{city}}\",\n    \"stateProvince\": \"{{state}}\",\n    \"postalCode\": \"{{postalCode}}\",\n    \"country\": \"{{country}}\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{contactListUrl}}contacts",
-							"host": [
-								"{{contactListUrl}}contacts"
-							]
-						},
-						"description": "This request is to add a contact with invalid last name."
-					},
-					"response": []
 				},
 				{
 					"name": "Cleanup - Delete Contact",
