@@ -2084,7 +2084,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Setup",
 					"id": "48037874-10ac916c-8b2d-4806-8c18-8aa94ba65cef",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
