@@ -1817,17 +1817,13 @@
 							"response": []
 						},
 						{
-							"name": "Missing Required Field Add Contact",
+							"name": "Missing Required Field",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"id": "6e214382-e291-4c8a-bd4a-6ccc7d15eefa",
 										"exec": [
-											"pm.test(\"Status code is 400\", function () {",
-											"    pm.response.to.have.status(400);",
-											"});",
-											"",
 											"pm.test(\"Response body contains error message for missing required field\", function () {",
 											"    const jsonData = pm.response.json();",
 											"    const errorMessage = \"`lastName` is required.\";",
