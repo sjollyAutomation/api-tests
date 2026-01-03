@@ -1223,7 +1223,7 @@
 			"name": "Negative Tests",
 			"item": [
 				{
-					"name": "Unauthenticated User",
+					"name": "Unauthenticated User Profile",
 					"event": [
 						{
 							"listen": "test",
