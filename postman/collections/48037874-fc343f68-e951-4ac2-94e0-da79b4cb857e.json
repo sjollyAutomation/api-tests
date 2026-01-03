@@ -1629,129 +1629,135 @@
 				},
 				{
 					"name": "Not Found",
-					"item": [],
+					"item": [
+						{
+							"name": "Not Found - Get Contact",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8ad6eb4e-2396-47a1-9879-a8f17a4a7e44",
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48037874-c0fb5499-335b-4554-91d0-9236898fb5b6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"Shoma\",\n    \"lastName\": \"Imran\",\n    \"email\": \"simran@test.com\",\n    \"password\": \"myPassword\"\n}"
+								},
+								"url": {
+									"raw": "{{contactListUrl}}contacts/{{invalidContactId}}",
+									"host": [
+										"{{contactListUrl}}contacts"
+									],
+									"path": [
+										"{{invalidContactId}}"
+									]
+								},
+								"description": "This request is to get contact information of an invalid contact id."
+							},
+							"response": []
+						},
+						{
+							"name": "Not Found - Update Contact",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "57ec37c5-3aea-4ca6-9261-a7681a51a3d6",
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "d2b333ff-a060-4370-9049-ca7df7cf79b9",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48037874-8c198c30-f847-4097-805b-22c2383d0f4c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"John H\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{contactListUrl}}contacts/{{invalidContactId}}",
+									"host": [
+										"{{contactListUrl}}contacts"
+									],
+									"path": [
+										"{{invalidContactId}}"
+									]
+								},
+								"description": "This request is to update a contact info which doesn't exist."
+							},
+							"response": []
+						}
+					],
 					"id": "48037874-93e75cb4-0dc3-457a-9051-3693510f6ee8"
 				},
 				{
-					"name": "Not Found - Get Contact",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "8ad6eb4e-2396-47a1-9879-a8f17a4a7e44",
-								"exec": [
-									"pm.test(\"Status code is 404\", function () {",
-									"    pm.response.to.have.status(404);",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"id": "48037874-c0fb5499-335b-4554-91d0-9236898fb5b6",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"Shoma\",\n    \"lastName\": \"Imran\",\n    \"email\": \"simran@test.com\",\n    \"password\": \"myPassword\"\n}"
-						},
-						"url": {
-							"raw": "{{contactListUrl}}contacts/{{invalidContactId}}",
-							"host": [
-								"{{contactListUrl}}contacts"
-							],
-							"path": [
-								"{{invalidContactId}}"
-							]
-						},
-						"description": "This request is to get contact information of an invalid contact id."
-					},
-					"response": []
-				},
-				{
-					"name": "Not Found - Update Contact",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "57ec37c5-3aea-4ca6-9261-a7681a51a3d6",
-								"exec": [
-									"pm.test(\"Status code is 404\", function () {",
-									"    pm.response.to.have.status(404);",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "d2b333ff-a060-4370-9049-ca7df7cf79b9",
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"id": "48037874-8c198c30-f847-4097-805b-22c2383d0f4c",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"John H\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{contactListUrl}}contacts/{{invalidContactId}}",
-							"host": [
-								"{{contactListUrl}}contacts"
-							],
-							"path": [
-								"{{invalidContactId}}"
-							]
-						},
-						"description": "This request is to update a contact info which doesn't exist."
-					},
-					"response": []
+					"name": "New Folder",
+					"item": [],
+					"id": "48037874-e5cb5bca-f337-463e-9c62-ddf3ece9089b"
 				},
 				{
 					"name": "Invalid Email Address Update Contact",
