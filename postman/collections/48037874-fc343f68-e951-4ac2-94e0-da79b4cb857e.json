@@ -1226,6 +1226,11 @@
 					"name": "Unauthenticated",
 					"item": [
 						{
+							"name": "New Folder",
+							"item": [],
+							"id": "48037874-2d6d55c6-a83c-4f79-9ec4-6436a409b6d5"
+						},
+						{
 							"name": "Unauthenticated User Profile",
 							"event": [
 								{
@@ -2074,18 +2079,6 @@
 							]
 						},
 						"description": "This request is to delete the added contact as part of cleanup."
-					},
-					"response": []
-				},
-				{
-					"name": "New Request",
-					"id": "48037874-ed40452f-7e1e-45f8-8236-917335965467",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": []
 					},
 					"response": []
 				}
