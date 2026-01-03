@@ -1587,12 +1587,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{contactListUrl}}contacts/{{contactId}}",
+									"raw": "{{contactListUrl}}contacts/{{invalidContactId}}",
 									"host": [
 										"{{contactListUrl}}contacts"
 									],
 									"path": [
-										"{{contactId}}"
+										"{{invalidContactId}}"
 									]
 								},
 								"description": "This request is to update a contact without logging in."
