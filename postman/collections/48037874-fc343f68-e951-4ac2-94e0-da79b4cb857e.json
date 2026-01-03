@@ -1360,7 +1360,42 @@
 							"response": []
 						}
 					],
-					"id": "48037874-30889642-bb40-442c-8b9e-b6ca7fdfec2f"
+					"id": "48037874-30889642-bb40-442c-8b9e-b6ca7fdfec2f",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6cc94bf3-2914-4881-8828-01ca9b12fd48",
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "358f7b68-995a-4010-ad84-2a291478ac70",
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"Response body contains error message for unauthenticated user\", function () {",
+									"    const jsonData = pm.response.json();",
+									"    const errorMessage = \"Please authenticate.\";",
+									"    ",
+									"    pm.expect(jsonData.error).to.eql(errorMessage);",
+									"});"
+								]
+							}
+						}
+					]
 				},
 				{
 					"name": "Setup",
