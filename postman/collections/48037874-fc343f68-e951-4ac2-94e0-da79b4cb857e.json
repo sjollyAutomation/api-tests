@@ -1288,11 +1288,37 @@
 				},
 				{
 					"name": "Unauthenticated Add Contact",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "634580f9-f117-4a11-9dad-7cbe51644eea",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"Response body contains error message for unauthenticated user\", function () {",
+									"    const jsonData = pm.response.json();",
+									"    const errorMessage = \"Please authenticate.\";",
+									"    ",
+									"    pm.expect(jsonData.error).to.eql(errorMessage);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
 					"id": "48037874-66d51730-3055-40c8-9463-e21e0d6b5c0d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
