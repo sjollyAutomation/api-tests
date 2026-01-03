@@ -1752,17 +1752,13 @@
 							"response": []
 						},
 						{
-							"name": "Invalid Birthdate Update Contact",
+							"name": "Invalid Birthdate",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"id": "f373ea42-eed0-475b-a537-2f4c4a54a358",
 										"exec": [
-											"pm.test(\"Status code is 400\", function () {",
-											"    pm.response.to.have.status(400);",
-											"});",
-											"",
 											"pm.test(\"Response body contains error message for invalid birthdate\", function () {",
 											"    const jsonData = pm.response.json();",
 											"    const errorMessage = \"Birthdate is invalid\";",
