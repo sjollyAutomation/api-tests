@@ -2076,6 +2076,18 @@
 						"description": "This request is to delete the added contact as part of cleanup."
 					},
 					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "48037874-ed40452f-7e1e-45f8-8236-917335965467",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			],
 			"id": "48037874-9af1b16f-2629-4e61-8143-c415af39177a",
