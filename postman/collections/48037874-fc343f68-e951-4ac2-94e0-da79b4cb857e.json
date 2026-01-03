@@ -1223,7 +1223,7 @@
 			"name": "Negative Tests",
 			"item": [
 				{
-					"name": "Get User  Profile Copy",
+					"name": "Unauthenticated User",
 					"event": [
 						{
 							"listen": "test",
