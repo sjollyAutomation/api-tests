@@ -1281,7 +1281,7 @@
 							"response": []
 						},
 						{
-							"name": "Unauthenticated Add Contact",
+							"name": "Add Contact",
 							"event": [
 								{
 									"listen": "test",
@@ -1325,7 +1325,7 @@
 							"response": []
 						},
 						{
-							"name": "Unauthenticated Get Contact List",
+							"name": "Get Contact List",
 							"event": [
 								{
 									"listen": "test",
