@@ -1293,8 +1293,23 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"{{lastName}}\",\n    \"birthdate\": \"{{birthDate}}\",\n    \"email\": \"{{email}}\",\n    \"phone\": \"{{phone}}\",\n    \"street1\": \"{{street1}}\",\n    \"street2\": \"{{street2}}\",\n    \"city\": \"{{city}}\",\n    \"stateProvince\": \"{{state}}\",\n    \"postalCode\": \"{{postalCode}}\",\n    \"country\": \"{{country}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{contactListUrl}}contacts",
+							"host": [
+								"{{contactListUrl}}contacts"
+							]
+						}
 					},
 					"response": []
 				},
