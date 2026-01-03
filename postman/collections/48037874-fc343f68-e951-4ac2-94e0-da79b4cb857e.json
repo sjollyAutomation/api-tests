@@ -1586,7 +1586,7 @@
 							"response": []
 						},
 						{
-							"name": "Not Found - Update Contact",
+							"name": "Update Contact",
 							"event": [
 								{
 									"listen": "test",
