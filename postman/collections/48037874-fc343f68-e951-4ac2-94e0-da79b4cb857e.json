@@ -1395,6 +1395,69 @@
 					]
 				},
 				{
+					"name": "Invalid Login",
+					"item": [
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a1ff6b76-c8ef-40c8-a4ab-bc03d2a31e61",
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {",
+											"    pm.response.to.have.status(401);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"packages": {},
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "48037874-0b4fe1e5-b202-4c3d-921b-125abd5138ce",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test@test.com\",\n    \"password\": \"{{password}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{contactListUrl}}users/login",
+									"host": [
+										"{{contactListUrl}}users"
+									],
+									"path": [
+										"login"
+									]
+								},
+								"description": "This request is to login as a valid user."
+							},
+							"response": []
+						}
+					],
+					"id": "48037874-603dd66f-1257-485e-990e-9189fa9b05d4"
+				},
+				{
 					"name": "Setup",
 					"item": [
 						{
