@@ -1287,6 +1287,18 @@
 					"response": []
 				},
 				{
+					"name": "Unauthenticated Add Contact",
+					"id": "48037874-66d51730-3055-40c8-9463-e21e0d6b5c0d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
 					"name": "Setup - Add Contact",
 					"event": [
 						{
@@ -1971,18 +1983,6 @@
 							]
 						},
 						"description": "This request is to delete the added contact as part of cleanup."
-					},
-					"response": []
-				},
-				{
-					"name": "New Request",
-					"id": "48037874-66d51730-3055-40c8-9463-e21e0d6b5c0d",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": []
 					},
 					"response": []
 				}
