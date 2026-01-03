@@ -1687,7 +1687,7 @@
 					"name": "Invalid Input",
 					"item": [
 						{
-							"name": "Invalid Email Address Update Contact",
+							"name": "Invalid Email Address",
 							"event": [
 								{
 									"listen": "test",
