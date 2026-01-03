@@ -1694,10 +1694,6 @@
 									"script": {
 										"id": "f373ea42-eed0-475b-a537-2f4c4a54a358",
 										"exec": [
-											"pm.test(\"Status code is 400\", function () {",
-											"    pm.response.to.have.status(400);",
-											"});",
-											"",
 											"pm.test(\"Response body contains error message for invalid email address\", function () {",
 											"    const jsonData = pm.response.json();",
 											"    const errorMessage = \"Email is invalid\";",
@@ -1945,7 +1941,35 @@
 							"response": []
 						}
 					],
-					"id": "48037874-e5cb5bca-f337-463e-9c62-ddf3ece9089b"
+					"id": "48037874-e5cb5bca-f337-463e-9c62-ddf3ece9089b",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "25eb971f-aa4f-44a1-8a57-8ec2fe2844f9",
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "c6ddf469-18ec-47ff-91f6-b687976e5c72",
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								]
+							}
+						}
+					]
 				},
 				{
 					"name": "Cleanup",
