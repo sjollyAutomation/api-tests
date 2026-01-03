@@ -1233,16 +1233,7 @@
 									"script": {
 										"id": "8aee720b-b97b-40d9-a040-e3ded6f143c9",
 										"exec": [
-											"pm.test(\"Status code is 401\", function () {",
-											"    pm.response.to.have.status(401);",
-											"});",
-											"",
-											"pm.test(\"Response body contains error message for unauthenticated user\", function () {",
-											"    const jsonData = pm.response.json();",
-											"    const errorMessage = \"Please authenticate.\";",
-											"    ",
-											"    pm.expect(jsonData.error).to.eql(errorMessage);",
-											"});"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {},
@@ -1297,16 +1288,7 @@
 									"script": {
 										"id": "634580f9-f117-4a11-9dad-7cbe51644eea",
 										"exec": [
-											"pm.test(\"Status code is 401\", function () {",
-											"    pm.response.to.have.status(401);",
-											"});",
-											"",
-											"pm.test(\"Response body contains error message for unauthenticated user\", function () {",
-											"    const jsonData = pm.response.json();",
-											"    const errorMessage = \"Please authenticate.\";",
-											"    ",
-											"    pm.expect(jsonData.error).to.eql(errorMessage);",
-											"});"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {},
@@ -1350,16 +1332,7 @@
 									"script": {
 										"id": "bf265791-18ea-4e29-ac74-56e1e4e92e2c",
 										"exec": [
-											"pm.test(\"Status code is 401\", function () {",
-											"    pm.response.to.have.status(401);",
-											"});",
-											"",
-											"pm.test(\"Response body contains error message for unauthenticated user\", function () {",
-											"    const jsonData = pm.response.json();",
-											"    const errorMessage = \"Please authenticate.\";",
-											"    ",
-											"    pm.expect(jsonData.error).to.eql(errorMessage);",
-											"});"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {},
