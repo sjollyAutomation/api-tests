@@ -1687,7 +1687,7 @@
 					"name": "Invalid Input",
 					"item": [
 						{
-							"name": "Login Copy",
+							"name": "Invalid Login",
 							"event": [
 								{
 									"listen": "test",
