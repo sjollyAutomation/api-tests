@@ -1536,7 +1536,7 @@
 					"name": "Not Found",
 					"item": [
 						{
-							"name": "Not Found - Get Contact",
+							"name": "Get Contact",
 							"event": [
 								{
 									"listen": "test",
@@ -1653,7 +1653,35 @@
 							"response": []
 						}
 					],
-					"id": "48037874-93e75cb4-0dc3-457a-9051-3693510f6ee8"
+					"id": "48037874-93e75cb4-0dc3-457a-9051-3693510f6ee8",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "42053b6e-0268-4862-9119-ea0a067beb15",
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "5e551773-243d-43d9-9927-37a968a12dd9",
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								]
+							}
+						}
+					]
 				},
 				{
 					"name": "Invalid Input",
