@@ -1879,7 +1879,7 @@
 							"response": []
 						},
 						{
-							"name": "Last Name Too Long Add Contact",
+							"name": "Long Last Name",
 							"event": [
 								{
 									"listen": "test",
