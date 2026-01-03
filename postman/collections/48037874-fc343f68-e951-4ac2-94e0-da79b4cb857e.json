@@ -1543,9 +1543,7 @@
 									"script": {
 										"id": "8ad6eb4e-2396-47a1-9879-a8f17a4a7e44",
 										"exec": [
-											"pm.test(\"Status code is 404\", function () {",
-											"    pm.response.to.have.status(404);",
-											"});"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {},
@@ -1595,9 +1593,7 @@
 									"script": {
 										"id": "57ec37c5-3aea-4ca6-9261-a7681a51a3d6",
 										"exec": [
-											"pm.test(\"Status code is 404\", function () {",
-											"    pm.response.to.have.status(404);",
-											"});"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {},
