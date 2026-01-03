@@ -1238,7 +1238,7 @@
 									"    const jsonData = pm.response.json();",
 									"    const errorMessage = \"Please authenticate.\";",
 									"    ",
-									"    pm.expect(jsonData.error).to.be(errorMessage);",
+									"    pm.expect(jsonData.error).to.eql(errorMessage);",
 									"});"
 								],
 								"type": "text/javascript",
