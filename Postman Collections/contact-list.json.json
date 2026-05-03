@@ -447,7 +447,7 @@
 											"",
 											"pm.test(\"JSON response contact fields match correct values\", function () {",
 											"    pm.expect(jsonData.email, \"Email address to match correct value\").to.eql(pm.collectionVariables.get(\"email\"));",
-											"    pm.expect(jsonData.phone, \"Phone to match correct value\").to.eql(pm.collectionVariables.get(\"phone\"));",
+											"    pm.expect(jsonData.phone, \"Phone to match the correct value\").to.eql(pm.collectionVariables.get(\"phone\"));",
 											"});",
 											"",
 											"pm.test(\"JSON response address fields match correct values\", function () {",
