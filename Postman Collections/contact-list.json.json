@@ -26,7 +26,7 @@
 									"});",
 									"",
 									"pm.test(\"JSON Response has user and token fields\", function () {",
-									"    pm.expect(jsonData, \"json response to be object\").to.be.an('object');",
+									"    pm.expect(jsonData, \"json response to be an object\").to.be.an('object');",
 									"    pm.expect(jsonData, \"json response to have all the keys\").to.have.all.keys('user', 'token');",
 									"});",
 									"",
@@ -2009,30 +2009,6 @@
 			],
 			"id": "da861a8f-4e27-4a94-8a68-81483197a15b",
 			"description": "The endpoint under Cleanup directory is to cleanup the end-to-end testing data."
-		},
-		{
-			"name": "New Request",
-			"id": "07f9ede9-c248-4257-85fe-eca7f12bda29",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
-		},
-		{
-			"name": "New Request",
-			"id": "a28feb55-ce46-496d-8f93-aa3e64637232",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
 		}
 	],
 	"event": [
